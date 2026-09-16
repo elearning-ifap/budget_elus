@@ -1151,6 +1151,26 @@ p{max-width:var(--mesure)}
 }
 .timeline-step b{font-weight:750}
 
+/* Cycle budgétaire : matérialiser les étapes de l’acteur sélectionné. */
+#actor-cycle .timeline-step{transition:opacity .18s ease}
+#actor-cycle .timeline-step .dot{
+  position:relative;
+  transition:border-color .18s ease,background .18s ease,color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+#actor-cycle .timeline-step.related .dot{
+  border-color:var(--bleu-nuit);
+  background:#FFF9E7;
+  color:var(--bleu-nuit);
+  box-shadow:0 0 0 5px #F8BB00,0 0 0 9px rgba(248,187,0,.24);
+  transform:scale(1.06);
+}
+#actor-cycle .timeline-step.related b{color:var(--bleu-nuit)}
+#actor-cycle .timeline-step.dim{opacity:.38}
+#actor-cycle .timeline-step.dim .dot{border-color:#AAB7BF;color:#74838C;background:#fff;box-shadow:none}
+@media(prefers-reduced-motion:reduce){
+  #actor-cycle .timeline-step,#actor-cycle .timeline-step .dot{transition:none!important}
+}
+
 /* --- Cartes indicateurs : recto/verso plus éditorial --- */
 .flip-grid{gap:20px}
 .flip-card,.flip-inner,.flip-face{border-radius:12px!important}
@@ -1458,11 +1478,11 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">↻</div><div class="bud-consigne-body"><strong>Explorez les acteurs.</strong> Sélectionnez chaque acteur et observez les étapes auxquelles il contribue.</div></div>
 <div class="cycle-zone">
 <div class="actors" id="actor-list">
-<button class="actor" data-actor="gov">Gouvernement</button>
-<button class="actor" data-actor="congres">Congrès</button>
-<button class="actor" data-actor="commission">Commission compétente</button>
-<button class="actor" data-actor="services">Services financiers</button>
-<button class="actor" data-actor="controle">Organisme de contrôle</button>
+<button aria-pressed="false" class="actor" data-actor="gov">Gouvernement</button>
+<button aria-pressed="false" class="actor" data-actor="congres">Congrès</button>
+<button aria-pressed="false" class="actor" data-actor="commission">Commission compétente</button>
+<button aria-pressed="false" class="actor" data-actor="services">Services financiers</button>
+<button aria-pressed="false" class="actor" data-actor="controle">Organisme de contrôle</button>
 </div>
 <div>
 <div class="timeline" id="actor-cycle">
@@ -2132,7 +2152,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="card info" style="margin-top:14px"><h4>Aperçu de la question</h4><p id="qb-preview">Complétez les quatre briques pour générer votre formulation.</p></div>
 <div class="cta-row"><span class="counter" id="qb-counter">0/2 questions préparées</span><button class="btn gold" disabled="" id="qb-add">Ajouter cette question</button></div>
 <div class="grid2" id="question-cards" style="margin-top:14px"></div>
-<div class="cta-row"><button class="btn primary" disabled="" id="question-next">Continuer avec mes 2 questions</button></div>
+<div class="feedback" id="question-transition-feedback" aria-live="polite"></div><div class="cta-row"><button class="btn primary" disabled="" id="question-next">Continuer avec mes 2 questions</button></div>
 </div>
 </div>
 </section><section class="panel" data-sequence="M5" data-titre="Simulation de commission" id="bud-m5-commission">
@@ -2927,5 +2947,5 @@ return{init:init,aller:aller,terminer:terminer,confid:confid,droitDate:droitDate
    });
    ============================================================================ */
 </script>
-<script src="app.js"></script></body>
+<script src="app.js?v=8.3.2"></script></body>
 </html>

@@ -1,6 +1,6 @@
 # Formation « Comprendre et piloter le budget »
 
-Version autonome V8 — lot 3, destinée à GitHub Pages.
+Version autonome GitHub Pages — V8 lot 3.2, correctif mission 5.
 
 ## Mise en ligne
 
@@ -14,13 +14,20 @@ Le fichier `index.html` doit rester à la racine. Les dossiers `media` et `resou
 ## Contenu
 
 - `index.html` : formation ;
-- `app.js` : logique pédagogique et sauvegarde locale ;
+- `app.js` : logique pédagogique ;
 - `media/` : illustrations ;
 - `resources/` : fiches PDF téléchargeables ;
 - `.nojekyll` : publication statique sans transformation Jekyll.
 
+## Correctif V8 lot 3.2
+
+- restauration/enrichissement des choix du constructeur de questions ;
+- sécurisation de l’enregistrement des deux questions avant la simulation ;
+- simulation 1 alimentée par la question 1 ;
+- simulation 2 alimentée par la question 2 ;
+- conservation de l’évolution sur les acteurs du cycle budgétaire ;
+- compatibilité avec l’état antérieur du module.
+
 ## Attention
 
-Cette version web autonome ne transmet aucune donnée à Moodle et ne remplace pas le package SCORM 1.2. La progression est conservée localement dans le navigateur lorsque celui-ci l’autorise.
-
-Version candidate à la validation experte et à la recette comportementale avant diffusion officielle.
+Cette version web autonome est destinée à la prévisualisation et à l’hébergement sur GitHub Pages. Elle ne transmet aucune donnée à Moodle et ne remplace pas le package SCORM 1.2.

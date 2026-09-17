@@ -1375,6 +1375,55 @@ select:focus,input[type=text]:focus,textarea:focus{
 .exchange-reflex{padding:14px 16px;border-left:5px solid var(--cnc-or,#F8BB00);border-radius:12px;background:#FFF9E8}.exchange-reflex strong{display:block;margin-bottom:4px;color:var(--bleu,#2F4354)}.exchange-reflex p{margin:0}
 @media(max-width:920px){.exchange-conversation-shell{grid-template-columns:1fr}.exchange-choice-panel{position:static}.exchange-thread{min-height:280px}.exchange-dashboard{top:64px}.exchange-intro-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.exchange-dashboard{position:static}.exchange-dashboard-top{align-items:flex-start}.exchange-dashboard .exchange-gauges,.exchange-metric-delta,.exchange-final-debrief .compare{grid-template-columns:1fr}.exchange-intro-actions,.exchange-actions{flex-direction:column}.exchange-intro-actions .btn,.exchange-actions .btn{width:100%}.dialogue-row{max-width:98%}.exchange-workspace-body{padding-left:14px!important;padding-right:14px!important}}
+
+/* V8 lot 3.4 — avatars typographiques : initiales + rôle, sans personnage généré. */
+.service-avatar{position:relative;display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:linear-gradient(145deg,#3D5B70,#2F4354);color:#fff;font-size:12px;font-weight:900;letter-spacing:.045em;box-shadow:0 0 0 3px #EDF3F6,0 4px 10px rgba(47,67,84,.13)}
+.service-avatar span{display:block;line-height:1}
+.service-avatar--dashboard{flex-basis:38px;width:38px;height:38px;font-size:11px;box-shadow:0 0 0 3px #F4F7F9}
+.service-avatar--card{flex-basis:44px;width:44px;height:44px;font-size:12px}
+.service-avatar--mini{flex-basis:34px;width:34px;height:34px;font-size:10px;box-shadow:0 0 0 2px #F0F4F6}
+.dialogue-row.service-row{align-items:flex-start}
+.dialogue-content{min-width:0}
+.dialogue-speaker{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin:0 0 5px 2px}
+.dialogue-speaker .speaker-role{font-size:12px;font-weight:900;color:var(--bleu,#2F4354)}
+.dialogue-speaker .speaker-meta{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#7A8993}
+.exchange-dashboard-person{display:flex;align-items:center;gap:12px}
+.exchange-dashboard-person>div:last-child{display:flex;flex-direction:column;gap:2px}
+.exchange-card-person{display:flex;align-items:center;gap:12px;margin:0 0 14px;padding:10px 12px;border-radius:13px;background:#F5F8FA;border:1px solid #E1E8EC}
+.exchange-card-person>div:last-child{min-width:0}.exchange-card-person span{display:block;margin-bottom:1px;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:900;color:#71808A}
+.exchange-intro-card .exchange-card-person h3{margin:0;font-size:16px;line-height:1.25}
+.exchange-final-person{display:flex;align-items:center;gap:10px;margin-bottom:10px}.exchange-final-person>div:last-child{min-width:0}.exchange-final-person span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.07em;font-weight:900;color:#74838D}.exchange-final-person h4{margin:1px 0 0!important}
+@media(max-width:640px){.service-avatar{flex-basis:38px;width:38px;height:38px;font-size:11px}.exchange-dashboard-person{align-items:flex-start}.exchange-dashboard-person .service-avatar--dashboard{margin-top:1px}}
+
+/* V8 lot 3.5 — débrief optimisé : l’interface change d’état une fois l’échange terminé. */
+.exchange-complete .exchange-dashboard{position:relative;top:auto;padding:12px 14px;margin-bottom:14px;box-shadow:0 4px 14px rgba(35,55,70,.05);backdrop-filter:none}
+.exchange-complete .exchange-dashboard-top{align-items:center;margin-bottom:7px}
+.exchange-complete .exchange-mini-status{background:#EAF3EE;color:#2E6B49}
+.exchange-complete .exchange-pinned-question{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:9px;margin:0 0 9px;padding:0;border:0;background:transparent;box-shadow:none}
+.exchange-complete .exchange-pinned-question .exchange-question-label{margin:0;white-space:nowrap;color:#7A6A36}
+.exchange-complete .exchange-pinned-question p{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#50626F}
+.exchange-complete .exchange-dashboard .exchange-gauges{display:none}
+.exchange-complete .exchange-prepared{display:none}
+.exchange-complete .exchange-conversation-shell{display:block}
+.exchange-complete .exchange-thread{display:none}
+.exchange-complete .exchange-choice-panel{position:static!important;top:auto!important;width:100%;padding:0!important;border:0!important;box-shadow:none!important;background:transparent!important}
+.exchange-complete .exchange-choice-panel>.feedback,.exchange-complete .exchange-proposal-head{display:none!important}
+.exchange-complete .exchange-actions{max-width:620px;margin:18px 0 0 auto}
+.exchange-complete .exchange-summary{gap:16px}
+.exchange-complete .exchange-summary-hero{padding:18px 20px}
+.exchange-review{border:1px solid #DDE6EB;border-radius:12px;background:#F8FAFB;overflow:hidden}
+.exchange-review summary{cursor:pointer;padding:12px 14px;font-weight:900;color:var(--bleu,#2F4354)}
+.exchange-review[open] summary{border-bottom:1px solid #DDE6EB}
+.exchange-review-thread{display:grid;gap:12px;padding:14px;max-height:430px;overflow:auto;background:#fff}
+.exchange-next-card{padding:18px 20px;border:1px solid #E4D18E;border-left:5px solid var(--cnc-or,#F8BB00);border-radius:14px;background:#FFF9E8}
+.exchange-next-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:7px}
+.exchange-next-head>div:first-child{display:grid;gap:2px}
+.exchange-next-head strong{font-size:18px;color:var(--bleu,#2F4354)}
+.exchange-next-who{font-size:12px;font-weight:900;color:#60717C;margin-bottom:8px}
+.exchange-next-card blockquote{margin:0 0 9px;padding:0;border:0;font-size:16px;line-height:1.5;font-weight:750;color:var(--encre,#263746)}
+.exchange-next-card p{margin:0;color:#5B6C77}
+@media(max-width:640px){.exchange-complete .exchange-pinned-question{grid-template-columns:1fr}.exchange-complete .exchange-pinned-question p{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.exchange-complete .exchange-actions{max-width:none}.exchange-next-head{align-items:flex-start}}
+
 </style>
 </head>
 <body>
@@ -2224,7 +2273,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="screen-body exchange-workspace-body">
 <div class="exchange-dashboard" aria-label="Repères de l’échange">
 <div class="exchange-dashboard-top">
-<div class="exchange-step-identity"><span class="exchange-overline" id="exchange-session-label">Échange 1 sur 2</span><strong id="exchange-who-label">Interlocuteur</strong></div>
+<div class="exchange-step-identity"><div class="exchange-dashboard-person"><div class="service-avatar service-avatar--dashboard" id="exchange-dashboard-avatar" role="img" aria-label="Interlocuteur">IN</div><div><span class="exchange-overline" id="exchange-session-label">Échange 1 sur 2</span><strong id="exchange-who-label">Interlocuteur</strong></div></div></div>
 <div class="exchange-mini-status" id="exchange-counter">Intervention 1 sur 3</div>
 </div>
 <div class="exchange-pinned-question" id="exchange-active-question" aria-live="polite"></div>

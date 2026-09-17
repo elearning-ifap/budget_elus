@@ -1438,7 +1438,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 
 <style id="budget-v38-tablet">
 /* ============================================================================
-   BUDGET ÉLUS — V8 lot 3.8 · TABLETTE / DESKTOP
+   BUDGET ÉLUS — V8 lot 3.9 · FONDAMENTAUX + TABLETTE / DESKTOP
    Cible : ordinateur + tablette. Smartphone volontairement non pris en charge.
    Cette couche finale neutralise les anciens breakpoints concurrents sans toucher
    à la logique pédagogique ni aux données du module.
@@ -1573,6 +1573,22 @@ img,svg,canvas,video,iframe{max-width:100%}
 }
 </style>
 
+
+<style id="repere-fondamentaux-v839">
+.repere-foundation{display:grid;gap:18px}
+.repere-foundation-head{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(240px,.8fr);gap:18px;align-items:start}
+.repere-foundation-head h3{margin:0 0 8px}.repere-foundation-head p{margin:0}
+.repere-reflex{margin:0!important}.repere-reflex h4{margin-top:0}
+.principle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.principle-card,.section-link-card,.cycle-learning-grid article,.indicator-foundation-grid article{border:1px solid var(--ligne);border-radius:12px;background:#fff;padding:16px;box-shadow:0 2px 8px rgba(47,67,84,.04)}
+.principle-card{position:relative;padding-top:18px}.principle-num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:var(--bleu-nuit);color:#fff;font-weight:900;font-size:13px;margin-bottom:10px}.principle-card h4,.section-link-card h4,.cycle-learning-grid h4,.indicator-foundation-grid h4{margin:0 0 8px;color:var(--bleu-nuit)}
+.principle-def{margin:0 0 10px}.principle-use{margin:0;padding-top:10px;border-top:1px solid var(--ligne);color:var(--texte2)}
+.repere-takeaway{border-left:4px solid var(--cnc-or);background:#FFF9E7;border-radius:8px;padding:14px 16px}
+.section-link-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch}.section-link-card{min-height:230px}.section-link-card.emphasis{background:#FFF9E7;border-color:#E6CF80}.section-link-card .icon{margin-bottom:12px}.section-link-arrow{display:grid;place-items:center;font-size:28px;font-weight:900;color:var(--bleu-ardoise)}
+.cycle-learning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.cycle-learning-grid article>span{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:999px;background:var(--cnc-or);color:var(--bleu-nuit);font-weight:900;margin-bottom:10px}.cycle-learning-grid p{margin:5px 0;color:var(--texte2)}
+.indicator-foundation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.indicator-foundation-grid article{min-height:180px}.indicator-foundation-grid article:nth-child(even){background:#FFF9E7;border-color:#E6CF80}
+@media(max-width:1050px){.repere-foundation-head{grid-template-columns:1fr}.principle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section-link-grid{grid-template-columns:1fr}.section-link-arrow{transform:rotate(90deg);min-height:28px}.section-link-card{min-height:0}.cycle-learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.indicator-foundation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
 </head>
 <body>
 <div id="budget-device-blocker" role="status" aria-live="polite">
@@ -1714,7 +1730,7 @@ img,svg,canvas,video,iframe{max-width:100%}
 <button class="card repere-select" data-repere="3"><div class="icon">3</div><h4>Le cycle budgétaire</h4><p class="muted">Quand intervient l’élu ?</p></button>
 <button class="card repere-select" data-repere="4"><div class="icon">4</div><h4>4 indicateurs</h4><p class="muted">Des repères, jamais un verdict</p></button>
 </div>
-<div class="card soft" id="repere-stage" style="margin-top:16px;min-height:270px"><div class="grid2"><div><h3>Six principes pour structurer la lecture</h3><div class="tags"><span class="note-tag">Annualité</span><span class="note-tag">Unité</span><span class="note-tag">Universalité</span><span class="note-tag">Spécialité</span><span class="note-tag">Équilibre</span><span class="note-tag">Antériorité</span></div><p class="muted">Ils donnent un cadre de lecture. Dans le module, ils servent de repères opérationnels avant d’entrer dans les chiffres.</p></div><div class="card gold"><h4>Réflexe</h4><p>Avant d’interpréter un chiffre, vérifiez dans quel cadre budgétaire et à quel moment du cycle il se situe.</p></div></div></div>
+<div class="card soft" id="repere-stage" style="margin-top:16px;min-height:270px"><div class="repere-foundation"><div class="repere-foundation-head"><div><h3>Les principes qui structurent votre lecture</h3><p>L’objectif n’est pas de les réciter. Chacun vous donne une question simple à garder en tête lorsque vous ouvrez un dossier budgétaire.</p></div><div class="card gold repere-reflex"><h4>Votre réflexe</h4><p>Un principe n’est utile que s’il vous aide à repérer ce qu’il faut vérifier, comparer ou demander.</p></div></div><div class="principle-grid"><article class="principle-card"><span class="principle-num">1</span><h4>Annualité</h4><p class="principle-def">Le budget autorise les recettes et les dépenses pour un exercice. Les choix pluriannuels doivent donc être replacés dans l’exercice concerné.</p><p class="principle-use"><b>Pour vous :</b> distinguez ce qui relève de l’année N de ce qui engage les exercices suivants.</p></article><article class="principle-card"><span class="principle-num">2</span><h4>Unité et universalité</h4><p class="principle-def">Les recettes et les dépenses sont présentées sans les compenser entre elles ; certaines recettes peuvent toutefois relever de dispositifs d’affectation spécifiques.</p><p class="principle-use"><b>Pour vous :</b> recherchez les flux complets et identifiez les éventuelles affectations particulières.</p></article><article class="principle-card"><span class="principle-num">3</span><h4>Spécialité des crédits</h4><p class="principle-def">Les crédits sont autorisés par destination, notamment par chapitre ou article, et leur utilisation est encadrée.</p><p class="principle-use"><b>Pour vous :</b> vérifiez où le crédit est ouvert et pour quel objet il peut être mobilisé.</p></article><article class="principle-card"><span class="principle-num">4</span><h4>Équilibre réel</h4><p class="principle-def">Fonctionnement et investissement doivent être équilibrés et les ressources doivent permettre de couvrir les charges prévues, notamment le remboursement du capital de la dette.</p><p class="principle-use"><b>Pour vous :</b> ne vous contentez pas du total : regardez l’équilibre de chaque section et la façon dont il est financé.</p></article><article class="principle-card"><span class="principle-num">5</span><h4>Sincérité</h4><p class="principle-def">Les recettes et les dépenses doivent être évaluées de façon sincère : le budget repose donc sur des hypothèses qu’il faut pouvoir comprendre et documenter.</p><p class="principle-use"><b>Pour vous :</b> questionnez les hypothèses de recettes, de charges et leur degré de sécurisation.</p></article><article class="principle-card"><span class="principle-num">6</span><h4>Antériorité</h4><p class="principle-def">L’autorisation budgétaire doit précéder l’exécution qu’elle permet. Le calendrier donne donc du sens à la décision.</p><p class="principle-use"><b>Pour vous :</b> vérifiez que l’autorisation existe avant l’exécution et situez toujours le dossier dans le cycle.</p></article></div><div class="repere-takeaway"><b>À retenir pour la suite :</b> ces principes ne sont pas un quiz de droit. Ils vous servent à lire le dossier : quel exercice ? quels flux ? quel crédit ? quel équilibre ? quelles hypothèses ? quelle autorisation ?</div></div></div>
 <div class="cta-row"><span class="counter" id="repere-counter">1/4 consulté</span><button class="btn primary" disabled="" id="repere-next">Continuer</button></div>
 </div>
 </div>
@@ -3212,5 +3228,5 @@ return{init:init,aller:aller,terminer:terminer,confid:confid,droitDate:droitDate
    });
    ============================================================================ */
 </script>
-<script src="app.js?v=8.3.8"></script></body>
+<script src="app.js?v=8.3.9"></script></body>
 </html>

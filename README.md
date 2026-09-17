@@ -50,3 +50,12 @@ Version GitHub Pages issue de la V8 lot 3.6. Cette passe solde les remarques de 
 ## Données pédagogiques
 
 Les montants du cas restent fictifs. Ils servent à entraîner la méthode de lecture et ne décrivent pas la situation budgétaire réelle de la Nouvelle-Calédonie.
+
+## V8 lot 3.9 — palier de fondamentaux renforcé
+- Le bloc « Quatre repères pour lire le dossier avec méthode » devient un véritable palier d'apprentissage.
+- Les principes ne sont plus seulement nommés : chaque principe comporte une explication courte et son usage pour l'élu.
+- « Unité et universalité » sont présentées ensemble afin de garder six repères : annualité, unité/universalité, spécialité, équilibre réel, sincérité et antériorité.
+- Les sections fonctionnement / épargne / investissement sont reliées explicitement.
+- Le cycle précise, pour chaque étape, le repère documentaire et l'action attendue de l'élu.
+- Les quatre indicateurs sont définis avant les activités de calcul et d'interprétation.
+- Aucune date juridique nouvelle n'a été ajoutée à ce palier.

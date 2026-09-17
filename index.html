@@ -518,6 +518,16 @@ table.tab td.revele::after{content:none}
 .choice.released-wrong{border-color:#D8AAA5!important;background:#FFF!important;box-shadow:none!important;color:#6D5654!important;opacity:.78;cursor:not-allowed}
 .choice.released-wrong::after{content:"Choix retiré";display:block;margin-top:7px;font-size:12px;font-weight:700;color:var(--erreur)}
 .choice.released-wrong[disabled]{opacity:.78}
+
+/* V8 lot 3.7 — relecture Émilie : trajectoires, lecture des indicateurs, ressources */
+.trajectory-panel{border:1px solid var(--ligne);border-radius:14px;background:#fff;padding:18px 20px;margin-bottom:18px;box-shadow:var(--ombre)}
+.trajectory-head,.trajectory-mini-title,.trajectory-reminder-foot{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.trajectory-head h3{margin:4px 0 0}.trajectory-chart{width:100%;height:auto;display:block;margin:8px 0 0}.chart-axis{stroke:#D8E0E5;stroke-width:2}.chart-line{fill:none;stroke:var(--bleu);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.chart-point{fill:#fff;stroke:var(--bleu);stroke-width:4}.chart-value{font-size:15px;font-weight:900;fill:var(--bleu)}.chart-year{font-size:13px;font-weight:800;fill:var(--texte2)}
+.trajectory-event{display:flex;gap:12px;align-items:flex-start;background:var(--sable);border-left:4px solid var(--or);border-radius:8px;padding:11px 13px}.trajectory-event b{white-space:nowrap;color:var(--bleu)}
+.trajectory-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}.trajectory-mini-card{border:1px solid var(--ligne);border-radius:12px;background:#fff;padding:13px}.trajectory-mini-title span{font-size:12px;color:var(--texte2)}.trajectory-mini-chart{width:100%;height:auto;display:block}.trajectory-reminder-foot{margin-top:12px;padding-top:12px;border-top:1px solid var(--ligne);color:var(--texte2);font-size:13px}.trajectory-kpi .mini-years{display:grid;grid-template-columns:repeat(3,1fr);font-size:10px;color:var(--texte2);font-weight:800;margin-top:-2px}.trajectory-kpi .mini-years span:nth-child(2){text-align:center}.trajectory-kpi .mini-years span:last-child{text-align:right}
+.case-status{display:flex;align-items:center;justify-content:space-between;gap:12px;border-radius:10px;padding:10px 12px;margin:12px 0}.case-status span{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}.case-status b{font-size:16px}.case-status.good{background:var(--succes-fond);border:1px solid #B9DFC8;color:var(--succes)}.case-status.watch{background:var(--sable);border:1px solid var(--sable-bord);color:#7A5E10}.case-question{border-top:1px solid var(--ligne);padding-top:10px;margin-top:10px}.indicator-row .indicator-pick.correct{outline:3px solid rgba(46,125,82,.16);border-color:var(--succes)}.indicator-row .indicator-pick.wrong{border-color:var(--erreur)}
+.radar-legend{justify-content:center;margin:6px 0 0}.resources-progress{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--ligne)}.resource-biblio{margin:8px 0 0;padding-left:20px}.resource-biblio li{margin:6px 0}
+@media(max-width:760px){.trajectory-pair{grid-template-columns:1fr}.trajectory-event{flex-direction:column}.trajectory-event b{white-space:normal}}
+
 </style>
 <style>
 :root{
@@ -1607,7 +1617,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="card info"><div class="icon">?</div><h4>Une pratique</h4><p><strong>Exemple :</strong> une organisation interne ou une date habituelle de commission peut évoluer.</p><p class="muted">Votre réflexe : vérifier la pratique auprès des ressources et services à jour.</p></div>
 </div>
 <div class="card info" style="margin-top:16px"><div class="counter">Repère institutionnel vérifié</div><h3>Budget et commission permanente</h3><p>La commission permanente ne peut pas être saisie des projets ou propositions de délibération qui portent sur l’adoption ou la modification du budget, présentent un caractère fiscal, ni du compte administratif.</p><p class="muted"><strong>Référence :</strong> loi organique n° 99-209 du 19 mars 1999, article 80, version en vigueur consultée le 17 septembre 2026. <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000020960161" target="_blank" rel="noopener">Consulter l’article sur Légifrance</a>.</p></div>
-<div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">✓</div><div class="bud-consigne-body"><strong>À retenir.</strong> Une formulation familière n’est pas automatiquement une règle. Reliez les obligations au texte applicable et vérifiez les pratiques susceptibles d’évoluer.</div></div>
+<div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">✓</div><div class="bud-consigne-body"><strong>À retenir.</strong> Une formulation familière n’est pas automatiquement une règle. Pour une obligation, le repère est le texte applicable dans sa version en vigueur ; pour une pratique, le repère est sa vérification auprès de la ressource ou du service à jour.</div></div>
 <div class="cta-row"><button class="btn primary" data-complete-go="bud-m1-cycle">J’ai compris le réflexe</button></div>
 </div>
 </div>
@@ -1666,7 +1676,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="badge-wrap"><div class="badge"><div class="badge-inner">M1</div></div><div><h3>Badge · Maîtriser les repères</h3><p>Acteurs, cycle, règle/pratique et plan de préparation sont désormais vos premiers repères.</p></div></div>
 <div class="carnet-mini"><b>Dans votre carnet</b><div class="tags" id="m1-close-carnet" style="margin-top:10px"></div></div>
 </div>
-<div class="cta-row"><button class="btn primary mission-close" data-mission="1">Recevoir mon badge et poursuivre</button></div>
+<div class="cta-row"><button class="btn secondary" data-bud-tool="bud-carnet" type="button">Voir l’état de mon carnet</button><button class="btn primary mission-close" data-mission="1">Recevoir mon badge et poursuivre</button></div>
 </div>
 </div>
 </section><section class="panel" data-sequence="M2" data-titre="Mission 2 · Introduction" id="m2-intro">
@@ -1893,10 +1903,16 @@ select:focus,input[type=text]:focus,textarea:focus{
 <p class="lede">Vous avez calculé les marges. Avant d’en tirer une conclusion, replacez-les dans la trajectoire et recherchez ce qui peut expliquer les évolutions.</p>
 </div>
 <div class="screen-body">
-<div class="grid3">
-<div class="card"><div class="icon">N−2</div><h4>14 Md</h4><p>Épargne nette</p></div>
-<div class="card gold"><div class="icon gold">N−1</div><h4>8 Md</h4><p>Épargne nette · dépense exceptionnelle de 6 Md</p></div>
-<div class="card"><div class="icon">N</div><h4>5 Md</h4><p>Épargne nette</p></div>
+<div class="trajectory-panel" aria-label="Évolution de l’épargne nette sur trois exercices">
+<div class="trajectory-head"><div><span class="counter">Épargne nette</span><h3>14 → 8 → 5 Md F CFP</h3></div><span class="status-chip watch">Trajectoire à expliquer</span></div>
+<svg class="trajectory-chart" viewBox="0 0 640 190" role="img" aria-label="L’épargne nette passe de 14 milliards en N moins 2 à 8 milliards en N moins 1 puis 5 milliards en N">
+<line x1="70" y1="150" x2="585" y2="150" class="chart-axis"/>
+<polyline points="95,48 325,95 555,126" class="chart-line"/>
+<circle cx="95" cy="48" r="6" class="chart-point"/><circle cx="325" cy="95" r="6" class="chart-point"/><circle cx="555" cy="126" r="6" class="chart-point"/>
+<text x="95" y="34" text-anchor="middle" class="chart-value">14</text><text x="325" y="81" text-anchor="middle" class="chart-value">8</text><text x="555" y="112" text-anchor="middle" class="chart-value">5</text>
+<text x="95" y="174" text-anchor="middle" class="chart-year">N−2</text><text x="325" y="174" text-anchor="middle" class="chart-year">N−1</text><text x="555" y="174" text-anchor="middle" class="chart-year">N</text>
+</svg>
+<div class="trajectory-event"><b>N−1 · événement exceptionnel</b><span>Dépense exceptionnelle : 6 Md F CFP. Elle peut expliquer une partie du recul, mais pas à elle seule la poursuite de la baisse en N.</span></div>
 </div>
 <div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">⌕</div><div class="bud-consigne-body"><strong>Quelle lecture est la plus solide ?</strong> Choisissez l’interprétation qui tient compte à la fois de l’événement exceptionnel et de la poursuite de la trajectoire.</div></div>
 <div class="choice-grid" id="interpret-choices">
@@ -1916,7 +1932,14 @@ select:focus,input[type=text]:focus,textarea:focus{
 <p class="lede">Un constat décrit ce que le dossier permet d’établir. Il ne doit pas transformer trop vite une observation en conclusion.</p>
 </div>
 <div class="screen-body">
-<div class="card soft" style="margin-bottom:16px"><div class="counter">Rappel des données utiles</div><div class="kpi-grid" style="margin-top:8px"><div class="kpi"><small>Épargne nette</small><b>14 → 8 → 5</b><small>Md F CFP</small></div><div class="kpi"><small>Dette</small><b>75 → 88 → 95</b><small>Md F CFP</small></div><div class="kpi"><small>Événement N−1</small><b>6</b><small>Md F CFP · dépense exceptionnelle</small></div><div class="kpi"><small>Réflexe</small><b>Comparer</b><small>avant de conclure</small></div></div></div>
+<div class="card soft trajectory-reminder" style="margin-bottom:16px">
+<div class="counter">Rappel des données utiles</div>
+<div class="trajectory-pair">
+<div class="trajectory-mini-card"><div class="trajectory-mini-title"><b>Épargne nette</b><span>Md F CFP</span></div><svg class="trajectory-mini-chart" viewBox="0 0 300 125" role="img" aria-label="Épargne nette : 14 en N moins 2, 8 en N moins 1, 5 en N"><line x1="35" y1="92" x2="270" y2="92" class="chart-axis"/><polyline points="50,25 150,57 250,76" class="chart-line"/><circle cx="50" cy="25" r="5" class="chart-point"/><circle cx="150" cy="57" r="5" class="chart-point"/><circle cx="250" cy="76" r="5" class="chart-point"/><text x="50" y="15" text-anchor="middle" class="chart-value">14</text><text x="150" y="47" text-anchor="middle" class="chart-value">8</text><text x="250" y="66" text-anchor="middle" class="chart-value">5</text><text x="50" y="112" text-anchor="middle" class="chart-year">N−2</text><text x="150" y="112" text-anchor="middle" class="chart-year">N−1</text><text x="250" y="112" text-anchor="middle" class="chart-year">N</text></svg></div>
+<div class="trajectory-mini-card"><div class="trajectory-mini-title"><b>Dette</b><span>Md F CFP</span></div><svg class="trajectory-mini-chart" viewBox="0 0 300 125" role="img" aria-label="Dette : 75 en N moins 2, 88 en N moins 1, 95 en N"><line x1="35" y1="92" x2="270" y2="92" class="chart-axis"/><polyline points="50,76 150,47 250,28" class="chart-line"/><circle cx="50" cy="76" r="5" class="chart-point"/><circle cx="150" cy="47" r="5" class="chart-point"/><circle cx="250" cy="28" r="5" class="chart-point"/><text x="50" y="66" text-anchor="middle" class="chart-value">75</text><text x="150" y="37" text-anchor="middle" class="chart-value">88</text><text x="250" y="18" text-anchor="middle" class="chart-value">95</text><text x="50" y="112" text-anchor="middle" class="chart-year">N−2</text><text x="150" y="112" text-anchor="middle" class="chart-year">N−1</text><text x="250" y="112" text-anchor="middle" class="chart-year">N</text></svg></div>
+</div>
+<div class="trajectory-reminder-foot"><span><b>N−1 :</b> dépense exceptionnelle de 6 Md F CFP</span><span><b>Réflexe :</b> comparer les trajectoires avant de conclure</span></div>
+</div>
 <div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">☑</div><div class="bud-consigne-body"><strong>Sélectionnez trois constats factuels.</strong> Après vérification, un choix incorrect est retiré automatiquement. Une proposition ressemble à un constat mais va plus loin que ce que les données permettent d’affirmer.</div></div>
 <div class="choice-grid" id="constat-choices">
 <button class="choice" data-constat="0" data-ok="1">L’épargne nette passe de 14 à 8 puis 5 Md F CFP.</button><button class="choice" data-constat="1" data-ok="1">La dette progresse de 75 à 88 puis 95 Md F CFP.</button><button class="choice" data-constat="2" data-ok="1">Une dépense exceptionnelle de 6 Md intervient en N−1.</button><button class="choice" data-constat="3" data-ok="0">La présence d’une dépense exceptionnelle suffit à prouver que la trajectoire est durablement maîtrisée.</button>
@@ -2003,9 +2026,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour voir comment l’utiliser.</div>
 </div>
 <div class="flip-face flip-back">
-<div class="counter">Face 2 · Utiliser</div><h3>Épargne brute</h3><p>Regardez son niveau et surtout sa trajectoire. Une diminution persistante appelle des questions sur les recettes et les charges.</p>
-<div class="status-row"><span class="status-chip good">Situation favorable</span><span class="status-chip watch">Vigilance</span><span class="status-chip risk">À instruire</span></div>
-<p class="muted">Ces repères ne remplacent jamais l’analyse du contexte et de la trajectoire.</p>
+<div class="counter">Face 2 · Interpréter le cas</div><h3>Épargne brute</h3><div class="case-status watch"><span>Dans ce cas</span><b>Point de vigilance</b></div><p>L’épargne brute reste positive, mais le tableau de bord expert classe <strong>13 Md F CFP</strong> en point de vigilance. Surtout, elle recule de <strong>22 à 16 puis 13 Md</strong> sur trois exercices.</p><p class="case-question"><b>Question à se poser :</b> qu’est-ce qui explique cette baisse : évolution des recettes, des charges, ou combinaison des deux ?</p>
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour revoir le calcul.</div>
 </div>
 </div>
@@ -2018,9 +2039,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour voir comment l’utiliser.</div>
 </div>
 <div class="flip-face flip-back">
-<div class="counter">Face 2 · Utiliser</div><h3>Besoin à financer hors épargne</h3><p>Il montre la part de l’investissement qui reste à financer par d’autres ressources. Demandez quelles ressources sont mobilisées et avec quel degré de sécurité.</p>
-<div class="status-row"><span class="status-chip good">Situation favorable</span><span class="status-chip watch">Vigilance</span><span class="status-chip risk">À instruire</span></div>
-<p class="muted">Ces repères ne remplacent jamais l’analyse du contexte et de la trajectoire.</p>
+<div class="counter">Face 2 · Interpréter le cas</div><h3>Besoin à financer hors épargne</h3><div class="case-status watch"><span>Dans ce cas</span><b>Point de vigilance</b></div><p>Après mobilisation de l’épargne brute, <strong>9 Md F CFP</strong> d’investissement restent à financer. Le tableau de bord expert classe ce niveau en point de vigilance.</p><p class="case-question"><b>Question à se poser :</b> quelles ressources couvrent ce besoin — subventions, fonds propres, emprunt — et avec quel degré de sécurisation ?</p>
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour revoir le calcul.</div>
 </div>
 </div>
@@ -2033,9 +2052,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour voir comment l’utiliser.</div>
 </div>
 <div class="flip-face flip-back">
-<div class="counter">Face 2 · Utiliser</div><h3>Capacité de désendettement</h3><p>Ne lisez pas le nombre d’années isolément. Comparez la trajectoire : 3,4 → 5,5 → 7,3 ans dans le dossier.</p>
-<div class="status-row"><span class="status-chip good">Situation favorable</span><span class="status-chip watch">Vigilance</span><span class="status-chip risk">À instruire</span></div>
-<p class="muted">Ces repères ne remplacent jamais l’analyse du contexte et de la trajectoire.</p>
+<div class="counter">Face 2 · Interpréter le cas</div><h3>Capacité de désendettement</h3><div class="case-status good"><span>Dans ce cas</span><b>Situation saine</b></div><p>Le repère expert situe une capacité <strong>inférieure à 8 ans</strong> en situation saine : avec <strong>7,3 ans</strong>, le niveau du cas reste donc favorable.</p><p class="case-question"><b>Mais la trajectoire compte :</b> 3,4 → 5,5 → 7,3 ans. Le niveau reste favorable, tandis que l’évolution mérite d’être surveillée.</p>
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour revoir le calcul.</div>
 </div>
 </div>
@@ -2048,18 +2065,16 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour voir comment l’utiliser.</div>
 </div>
 <div class="flip-face flip-back">
-<div class="counter">Face 2 · Utiliser</div><h3>Taux d’autofinancement</h3><p>Il renseigne sur la part des investissements couverte par l’épargne dans ce cas. Reliez-le au besoin de financement et à la trajectoire.</p>
-<div class="status-row"><span class="status-chip good">Situation favorable</span><span class="status-chip watch">Vigilance</span><span class="status-chip risk">À instruire</span></div>
-<p class="muted">Ces repères ne remplacent jamais l’analyse du contexte et de la trajectoire.</p>
+<div class="counter">Face 2 · Interpréter le cas</div><h3>Taux d’autofinancement</h3><div class="case-status good"><span>Dans ce cas</span><b>Situation saine</b></div><p>Le repère expert situe un taux <strong>supérieur à 50 %</strong> en situation saine. Avec environ <strong>59 %</strong>, le cas se situe donc dans une zone favorable.</p><p class="case-question"><b>Question à se poser :</b> comment est financée la part restante des investissements et cette combinaison est-elle sécurisée dans le temps ?</p>
 <div class="flip-hint" aria-hidden="true">↻ Sélectionnez la carte pour revoir le calcul.</div>
 </div>
 </div>
 </div></div>
-<div class="card soft" id="indicator-qualification" style="margin-top:18px"><div class="counter">À vous de jouer · Qualifier les quatre indicateurs</div><h3>Quel diagnostic provisoire retenez-vous ?</h3><p>Pour chaque indicateur du cas, choisissez <strong>favorable</strong>, <strong>vigilance</strong> ou <strong>à instruire</strong>. Le feedback explique ensuite ce que le chiffre permet — et ne permet pas — de conclure.</p><div class="resource-list" id="indicator-qual-list">
-<div class="resource indicator-row" data-indicator="0"><b>Épargne brute · 13 Md, en baisse</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Favorable</button><button class="btn secondary indicator-pick" data-value="watch">Vigilance</button><button class="btn secondary indicator-pick" data-value="risk">À instruire</button></div><div class="feedback indicator-feedback"></div></div>
-<div class="resource indicator-row" data-indicator="1"><b>Besoin à financer hors épargne · 9 Md</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Favorable</button><button class="btn secondary indicator-pick" data-value="watch">Vigilance</button><button class="btn secondary indicator-pick" data-value="risk">À instruire</button></div><div class="feedback indicator-feedback"></div></div>
-<div class="resource indicator-row" data-indicator="2"><b>Désendettement · 3,4 → 5,5 → 7,3 ans</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Favorable</button><button class="btn secondary indicator-pick" data-value="watch">Vigilance</button><button class="btn secondary indicator-pick" data-value="risk">À instruire</button></div><div class="feedback indicator-feedback"></div></div>
-<div class="resource indicator-row" data-indicator="3"><b>Autofinancement · environ 59 %</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Favorable</button><button class="btn secondary indicator-pick" data-value="watch">Vigilance</button><button class="btn secondary indicator-pick" data-value="risk">À instruire</button></div><div class="feedback indicator-feedback"></div></div>
+<div class="card soft" id="indicator-qualification" style="margin-top:18px"><div class="counter">À vous de jouer · Qualifier les quatre indicateurs</div><h3>Quel diagnostic provisoire retenez-vous ?</h3><p>Pour chaque indicateur du cas, choisissez le <strong>repère de lecture</strong> correspondant au corpus expert. Le feedback distingue ensuite le niveau observé de la trajectoire, afin d’éviter qu’un code couleur devienne un verdict automatique.</p><div class="resource-list" id="indicator-qual-list">
+<div class="resource indicator-row" data-indicator="0"><b>Épargne brute · 13 Md, en baisse</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Situation saine</button><button class="btn secondary indicator-pick" data-value="watch">Point de vigilance</button><button class="btn secondary indicator-pick" data-value="risk">Risque financier</button></div><div class="feedback indicator-feedback"></div></div>
+<div class="resource indicator-row" data-indicator="1"><b>Besoin à financer hors épargne · 9 Md</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Situation saine</button><button class="btn secondary indicator-pick" data-value="watch">Point de vigilance</button><button class="btn secondary indicator-pick" data-value="risk">Risque financier</button></div><div class="feedback indicator-feedback"></div></div>
+<div class="resource indicator-row" data-indicator="2"><b>Désendettement · 3,4 → 5,5 → 7,3 ans</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Situation saine</button><button class="btn secondary indicator-pick" data-value="watch">Point de vigilance</button><button class="btn secondary indicator-pick" data-value="risk">Risque financier</button></div><div class="feedback indicator-feedback"></div></div>
+<div class="resource indicator-row" data-indicator="3"><b>Autofinancement · environ 59 %</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Situation saine</button><button class="btn secondary indicator-pick" data-value="watch">Point de vigilance</button><button class="btn secondary indicator-pick" data-value="risk">Risque financier</button></div><div class="feedback indicator-feedback"></div></div>
 </div></div>
 <div class="cta-row"><span class="counter" id="flip-counter">0/4 cartes consultées des deux côtés</span><button class="btn primary" disabled="" id="flip-next">Continuer</button></div>
 </div>
@@ -2073,10 +2088,10 @@ select:focus,input[type=text]:focus,textarea:focus{
 </div>
 <div class="screen-body">
 <div class="kpi-grid trajectory-grid">
-<div class="kpi"><small>Épargne brute</small><b>22 → 16 → 13</b><svg aria-label="Courbe décroissante de 22 à 13" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,6 60,23 115,34"/><circle cx="5" cy="6" r="3"/><circle cx="60" cy="23" r="3"/><circle cx="115" cy="34" r="3"/></svg><small>Md F CFP</small></div>
-<div class="kpi"><small>Dette</small><b>75 → 88 → 95</b><svg aria-label="Courbe croissante de 75 à 95" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,34 60,18 115,7"/><circle cx="5" cy="34" r="3"/><circle cx="60" cy="18" r="3"/><circle cx="115" cy="7" r="3"/></svg><small>Md F CFP</small></div>
-<div class="kpi"><small>Désendettement</small><b>3,4 → 5,5 → 7,3</b><svg aria-label="Courbe croissante de 3,4 à 7,3 années" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,34 60,20 115,7"/><circle cx="5" cy="34" r="3"/><circle cx="60" cy="20" r="3"/><circle cx="115" cy="7" r="3"/></svg><small>années</small></div>
-<div class="kpi"><small>Investissement</small><b>20 → 24 → 22</b><svg aria-label="Courbe montant de 20 à 24 puis revenant à 22" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,29 60,8 115,18"/><circle cx="5" cy="29" r="3"/><circle cx="60" cy="8" r="3"/><circle cx="115" cy="18" r="3"/></svg><small>Md F CFP</small></div>
+<div class="kpi trajectory-kpi"><small>Épargne brute</small><b>22 → 16 → 13</b><svg aria-label="Courbe décroissante de 22 à 13" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,6 60,23 115,34"/><circle cx="5" cy="6" r="3"/><circle cx="60" cy="23" r="3"/><circle cx="115" cy="34" r="3"/></svg><div class="mini-years"><span>N−2</span><span>N−1</span><span>N</span></div><small>Md F CFP</small></div>
+<div class="kpi trajectory-kpi"><small>Dette</small><b>75 → 88 → 95</b><svg aria-label="Courbe croissante de 75 à 95" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,34 60,18 115,7"/><circle cx="5" cy="34" r="3"/><circle cx="60" cy="18" r="3"/><circle cx="115" cy="7" r="3"/></svg><div class="mini-years"><span>N−2</span><span>N−1</span><span>N</span></div><small>Md F CFP</small></div>
+<div class="kpi trajectory-kpi"><small>Désendettement</small><b>3,4 → 5,5 → 7,3</b><svg aria-label="Courbe croissante de 3,4 à 7,3 années" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,34 60,20 115,7"/><circle cx="5" cy="34" r="3"/><circle cx="60" cy="20" r="3"/><circle cx="115" cy="7" r="3"/></svg><div class="mini-years"><span>N−2</span><span>N−1</span><span>N</span></div><small>années</small></div>
+<div class="kpi trajectory-kpi"><small>Investissement</small><b>20 → 24 → 22</b><svg aria-label="Courbe montant de 20 à 24 puis revenant à 22" class="mini-curve" viewBox="0 0 120 42"><polyline points="5,29 60,8 115,18"/><circle cx="5" cy="29" r="3"/><circle cx="60" cy="8" r="3"/><circle cx="115" cy="18" r="3"/></svg><div class="mini-years"><span>N−2</span><span>N−1</span><span>N</span></div><small>Md F CFP</small></div>
 </div>
 <div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">⌕</div><div class="bud-consigne-body"><strong>Quelles hypothèses méritent d’être instruites ?</strong> Sélectionnez les trois affirmations les plus solides. Après vérification, un choix incorrect est retiré automatiquement ; les hypothèses pertinentes restent sélectionnées.</div></div>
 <div class="choice-grid" id="hypo-choices">
@@ -2122,8 +2137,8 @@ select:focus,input[type=text]:focus,textarea:focus{
 </div>
 </div>
 <div class="scenario-compare" id="scenario-compare"><div class="scenario empty">Scénario 1 à construire</div><div class="scenario empty">Scénario 2 à construire</div></div>
-<div class="card soft" style="margin-top:16px">
-<h4>Question de contrôle</h4><p>Lorsque l’hypothèse de recettes change, quel réflexe est le plus utile avant d’interpréter le résultat ?</p>
+<div class="card soft" id="sim-control-block" hidden style="margin-top:16px">
+<div class="counter">Étape 2 · Vérifier vos scénarios</div><h4>Question de contrôle</h4><p>Lorsque l’hypothèse de recettes change, quel réflexe est le plus utile avant d’interpréter le résultat ?</p>
 <div class="choice-grid" id="sim-question">
 <button class="choice" data-ok="1">Vérifier la source de l’hypothèse et son degré de sécurité.</button>
 <button class="choice" data-ok="0">Considérer automatiquement l’hypothèse la plus élevée comme la plus pertinente.</button>
@@ -2138,11 +2153,11 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="screen-head">
 <div class="kicker">Mission 4 · Votre carnet s’enrichit</div>
 <h1 class="title">Quels deux points devez-vous encore instruire ?</h1>
-<p class="lede">Vous avez observé, calculé et simulé. Choisissez maintenant deux vigilances qui justifient une demande d’information complémentaire.</p>
+<p class="lede">Vous avez construit deux scénarios. Comparez-les maintenant : les écarts entre vos hypothèses font apparaître les points qui méritent encore une information complémentaire.</p>
 </div>
 <div class="screen-body">
 <div class="card soft" style="margin-bottom:16px"><div class="counter">Vos deux scénarios conservés</div><div class="scenario-compare" id="vigilance-scenarios"><div class="scenario empty">Scénario 1 à construire</div><div class="scenario empty">Scénario 2 à construire</div></div></div>
-<div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">⚑</div><div class="bud-consigne-body"><strong>Sélectionnez deux points de vigilance.</strong> Après vérification, un choix incorrect est retiré automatiquement. Une proposition n’a pas d’incidence sur l’analyse financière et sert de distracteur.</div></div>
+<div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">⚑</div><div class="bud-consigne-body"><strong>À partir de vos deux scénarios affichés ci-dessus, sélectionnez deux points de vigilance.</strong> Demandez-vous ce qui change entre les scénarios et ce qui reste incertain. Après vérification, un choix incorrect est retiré automatiquement.</div></div>
 <div class="choice-grid" id="vig-choices">
 <button class="choice" data-ok="1" data-vig="0">Robustesse de la recette attendue</button><button class="choice" data-ok="1" data-vig="1">Trajectoire de l’épargne sur plusieurs exercices</button><button class="choice" data-ok="1" data-vig="2">Financement pluriannuel des investissements</button><button class="choice" data-ok="0" data-vig="3">Couleur de présentation de la maquette budgétaire</button><button class="choice" data-ok="1" data-vig="4">Évolution durable de certaines charges</button>
 </div>
@@ -2194,7 +2209,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <p class="lede">Votre carnet contient déjà les signaux, constats et vigilances. Il faut maintenant faire un choix : quels sujets justifient le plus une demande d’explication ?</p>
 </div>
 <div class="screen-body">
-<div class="carnet-mini"><b>Votre carnet avant de prioriser</b><div class="tags" id="priority-carnet" style="margin-top:10px"></div></div>
+<div class="carnet-mini"><b>Vos notes dans votre carnet</b><p class="muted" style="margin:6px 0 8px">Avant de prioriser, retrouvez ce que vous avez effectivement relevé pendant les quatre premières missions.</p><div class="tags" id="priority-carnet" style="margin-top:10px"></div><p style="margin:12px 0 0"><button class="btn secondary" data-bud-tool="bud-carnet" type="button">Voir mon carnet complet</button></p></div>
 <div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">★</div><div class="bud-consigne-body"><strong>Retrouvez les trois priorités les plus structurantes.</strong> Après vérification, un choix incorrect est retiré automatiquement ; les priorités pertinentes restent sélectionnées. Les autres propositions sont déjà expliquées ou sans incidence significative.</div></div>
 <div class="choice-grid" id="priority-choices">
 <button class="choice" data-ok="1" data-priority="0">La baisse persistante de l’épargne brute malgré la disparition de la dépense exceptionnelle.</button><button class="choice" data-ok="1" data-priority="1">La capacité de désendettement qui passe de 3,4 à 7,3 ans.</button><button class="choice" data-ok="1" data-priority="2">La sécurisation du financement pluriannuel et des subventions annoncées.</button><button class="choice" data-ok="0" data-priority="3">Une variation mineure déjà expliquée et sans incidence significative sur les équilibres.</button><button class="choice" data-ok="0" data-priority="4">La modernisation de la mise en page de la maquette budgétaire.</button>
@@ -2214,13 +2229,13 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="grid3">
 <div class="card"><div class="icon">F CFP</div><h4>Service financier compétent</h4><p>Hypothèses techniques, construction des données, méthode de calcul, éléments du dossier.</p></div>
 <div class="card gold"><div class="icon gold">C</div><h4>Commission compétente</h4><p>Lieu d’examen et de mise en discussion des éléments nécessaires à la décision.</p></div>
-<div class="card info"><div class="icon">✓</div><h4>Organisme de contrôle</h4><p>Références de contrôle, analyses ou constats relevant de sa mission.</p></div>
+<div class="card info"><div class="icon">P</div><h4>Service porteur du projet</h4><p>Calendrier opérationnel, hypothèses métier, avancement du projet et conditions concrètes de mise en œuvre.</p></div>
 </div>
 <div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">?</div><div class="bud-consigne-body"><strong>Situation.</strong> Vous voulez vérifier l’hypothèse technique utilisée pour estimer une recette du dossier. Par quel interlocuteur commencez-vous ?</div></div>
 <div class="choice-grid" id="interloc-choices">
 <button class="choice" data-ok="1">Le service financier compétent</button>
-<button class="choice" data-ok="0">Un organisme de contrôle externe, sans d’abord documenter l’hypothèse</button>
-<button class="choice" data-ok="0">N’importe quel interlocuteur : le destinataire ne change rien à la qualité de la réponse</button>
+<button class="choice" data-ok="0">Le service porteur du projet, alors que la question porte d’abord sur la construction de l’hypothèse financière</button>
+<button class="choice" data-ok="0">La commission compétente, sans avoir d’abord documenté la donnée technique attendue</button>
 </div>
 <div class="feedback" id="interloc-feedback"></div>
 <div class="cta-row"><button class="btn primary" disabled="" id="interloc-next">Continuer</button></div>
@@ -2318,7 +2333,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <p class="eyebrow">Positionnement</p>
 <h1>À quel niveau vous situez-vous maintenant ?</h1>
 <p class="chapo">Les mêmes six compétences qu’au départ. Répondez pour aujourd’hui ; votre radar comparera les deux photographies.</p>
-<div id="g-post-items"></div><div class="bud-pos-tools"><span class="bud-pos-counter" id="bud-post-counter">Compétence 1 sur 6</span><button class="btn btn-secondaire" id="bud-post-back" type="button">← Modifier la réponse précédente</button></div><div class="bud-pos-summary" hidden="" id="bud-post-summary"><div class="radar-wrap"><canvas aria-label="Radar comparatif Départ et Aujourd’hui" class="radar" height="520" id="bud-post-radar" width="520"></canvas><div><h2>Votre évolution perçue</h2><p>La comparaison ne produit ni score global ni classement. Elle vous permet de visualiser votre évolution sur les six compétences.</p><div class="radar-text" id="bud-post-radar-text"></div><p><button class="btn btn-primaire" id="bud-post-go" type="button">Voir ma synthèse</button></p></div></div></div>
+<div id="g-post-items"></div><div class="bud-pos-tools"><span class="bud-pos-counter" id="bud-post-counter">Compétence 1 sur 6</span><button class="btn btn-secondaire" id="bud-post-back" type="button">← Modifier la réponse précédente</button></div><div class="bud-pos-summary" hidden="" id="bud-post-summary"><div class="radar-wrap"><div><canvas aria-label="Radar comparatif Départ et Aujourd’hui" class="radar" height="520" id="bud-post-radar" width="520"></canvas><div class="legend radar-legend" aria-label="Légende du radar"><span>Départ</span><span class="today">Aujourd’hui</span></div></div><div><h2>Votre évolution perçue</h2><p>La comparaison ne produit ni score global ni classement. Elle vous permet de visualiser votre évolution sur les six compétences.</p><div class="radar-text" id="bud-post-radar-text"></div><p><button class="btn btn-primaire" id="bud-post-go" type="button">Voir ma synthèse</button></p></div></div></div>
 <div hidden="" id="g-retro-bloc">
 <h2>Et avec le recul ?</h2>
 <div class="encadre encadre-attention">
@@ -2353,7 +2368,7 @@ select:focus,input[type=text]:focus,textarea:focus{
     <h2 id="final-radar-title">Votre évolution</h2>
     <p class="chapo">Votre photographie de départ et votre positionnement d’aujourd’hui, sur les six mêmes compétences. Ce radar n’est ni une note ni un classement.</p>
     <div class="final-radar-stage">
-      <canvas aria-label="Radar final Départ et Aujourd’hui" class="radar" height="520" id="final-radar" width="520"></canvas>
+      <div><canvas aria-label="Radar final Départ et Aujourd’hui" class="radar" height="520" id="final-radar" width="520"></canvas><div class="legend radar-legend" aria-label="Légende du radar"><span>Départ</span><span class="today">Aujourd’hui</span></div></div>
     </div>
     <div class="radar-text" id="final-radar-text"></div>
   </section>
@@ -2399,11 +2414,19 @@ select:focus,input[type=text]:focus,textarea:focus{
 </section><section class="panel" data-hors-progression="" data-titre="Les repères à conserver" id="bud-ressources">
 <div class="screen">
 <div class="screen-head">
-<div class="kicker">Ressources</div>
-<h1 class="title">Vos repères pour poursuivre</h1>
-<p class="lede">Téléchargez les aides de travail du module et retrouvez les références officielles utiles pour poursuivre votre lecture.</p>
+<div class="kicker">Accès permanent</div>
+<h1 class="title">Mes repères et ressources</h1>
+<p class="lede">Sur une même page : votre progression dans les cinq missions, votre carnet, les aides de travail et les références utiles.</p>
 </div>
 <div class="screen-body">
+<div class="resources-progress"><h2>Ma progression</h2><p class="muted">Les badges et repères ci-dessous se mettent à jour au fil du parcours.</p><div class="repere-map" id="repere-map">
+<div class="repere-card" data-mission-card="1"><div class="badge small locked"><div class="badge-inner">M1</div></div><div class="repere-state">À acquérir</div><h4>Maîtriser les repères</h4><ul class="repere-detail"><li data-check-id="bud-m1-reperes">4 repères fondamentaux</li><li data-check-id="bud-m1-acteurs">Acteurs et responsabilités</li><li data-check-id="bud-m1-cycle">Cycle budgétaire</li><li data-check-id="bud-m1-plan">Plan de préparation</li></ul></div>
+<div class="repere-card" data-mission-card="2"><div class="badge small locked"><div class="badge-inner">M2</div></div><div class="repere-state">À acquérir</div><h4>Analyser le dossier</h4><ul class="repere-detail"><li data-check-id="bud-m2-documents">Document adapté au besoin</li><li data-check-id="bud-m2-logiques">Trois logiques budgétaires</li><li data-check-id="bud-m2-evolution">Prévoir / ajuster / constater / orienter</li><li data-check-id="bud-dossier">Analyse des 4 pièces</li></ul></div>
+<div class="repere-card" data-mission-card="3"><div class="badge small locked"><div class="badge-inner">M3</div></div><div class="repere-state">À acquérir</div><h4>Lire les équilibres</h4><ul class="repere-detail"><li data-check-id="bud-m3-sections">Fonctionnement et investissement</li><li data-check-id="bud-m3-calcul">Trois niveaux d’épargne</li><li data-check-id="bud-m3-interpreter">Lecture de trajectoire</li><li data-check-id="bud-m3-reflexe">Réflexe d’analyse</li></ul></div>
+<div class="repere-card" data-mission-card="4"><div class="badge small locked"><div class="badge-inner">M4</div></div><div class="repere-state">À acquérir</div><h4>Interpréter et instruire</h4><ul class="repere-detail"><li data-check-id="bud-m4-indicateurs">Quatre indicateurs</li><li data-check-id="bud-m4-trajectoire">Hypothèses à instruire</li><li data-check-id="bud-m4-simulateur">Comparaison de scénarios</li><li data-check-id="bud-m4-vigilances">Deux vigilances</li></ul></div>
+<div class="repere-card" data-mission-card="5"><div class="badge small locked"><div class="badge-inner">M5</div></div><div class="repere-state">À acquérir</div><h4>Préparer ses échanges</h4><ul class="repere-detail"><li data-check-id="bud-m5-priorites">Trois priorités</li><li data-check-id="bud-m5-interlocuteur">Bon interlocuteur</li><li data-check-id="bud-m5-question">Deux questions</li><li data-check-id="bud-m5-commission">Échange formatif</li></ul></div>
+</div>
+<div class="repere-progress"><span id="repere-progress-bar"></span></div></div>
 <div class="grid2">
 <div>
 <h3>Outils du module</h3>
@@ -2412,7 +2435,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="resource"><b>Outil de lecture rapide d’un budget public</b><p>Une grille sur trois exercices, sans seuil automatique non validé.</p><p><a class="btn secondary" href="resources/Outil_lecture_rapide_budget.pdf" target="_blank" rel="noopener">Ouvrir l’outil PDF</a></p></div>
 <div class="resource"><b>Calendrier budgétaire</b><p>Les règles juridiques distinguées des dates de programmation interne.</p><p><a class="btn secondary" href="resources/Calendrier_budgetaire_Congres_NC.pdf" target="_blank" rel="noopener">Ouvrir le calendrier PDF</a></p></div>
 <div class="resource"><b>Lexique des termes budgétaires</b><p>Accessible à tout moment depuis le menu « Accès direct ».</p><p><button class="btn secondary" data-bud-tool="bud-lexique" type="button">Ouvrir le lexique</button></p></div>
-<div class="resource"><b>Votre carnet de mission</b><p>Vos signaux, constats, vigilances, priorités et questions.</p></div>
+<div class="resource"><b>Votre carnet de mission</b><p>Vos signaux, constats, vigilances, priorités et questions.</p><p><button class="btn secondary" data-bud-tool="bud-carnet" type="button">Ouvrir mon carnet</button></p></div>
 </div>
 </div>
 <div>
@@ -2422,7 +2445,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="resource"><b>Congrès de la Nouvelle-Calédonie</b><p>Documents et délibérations budgétaires publiés par l’institution.</p><p><a href="https://www.congres.nc" target="_blank" rel="noopener">Consulter le site du Congrès</a></p></div>
 <div class="resource"><b>Direction du Budget et des Affaires Financières</b><p>Rapports et documents budgétaires de la Nouvelle-Calédonie.</p></div>
 </div>
-<div class="card gold" style="margin-top:14px"><h4>Références et ouvrages</h4><p>Les références bibliographiques complémentaires seront reprises lorsqu’elles auront été explicitement fournies ou validées. Aucun ouvrage n’est ajouté de notre propre initiative dans cette version.</p></div>
+<div class="card gold" style="margin-top:14px"><h4>Références et ressources recommandées dans le corpus expert</h4><ul class="resource-biblio"><li>Rapports budgétaires de la Nouvelle-Calédonie : budget primitif et compte administratif.</li><li>Comptes administratifs déposés au Congrès, notamment l’exercice 2025.</li><li>Guide institutionnel du Gouvernement de la Nouvelle-Calédonie.</li><li>Rapports de la Chambre territoriale des comptes relatifs à la Nouvelle-Calédonie.</li><li>Fiche Bee Assist 2026 « Les 5 indicateurs essentiels pour comprendre un budget public ».</li><li>Outil Bee Assist 2026 de lecture rapide d’un budget public.</li><li>Glossaire Bee Assist 2026 des termes budgétaires spécifiques à la Nouvelle-Calédonie.</li><li>Module IFAP « Comprendre, construire et piloter un budget public ».</li></ul></div>
 </div>
 </div>
 <div class="cta-row"><button class="btn primary" data-complete-go="bud-credits">Voir les crédits</button></div>
@@ -2444,26 +2467,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="cta-row"><button class="btn primary" id="finish-course">Module terminé · revenir à la conclusion</button></div>
 </div>
 </div>
-</section><section class="panel" data-hors-progression="" data-titre="Mes repères" id="bud-reperes">
-<div class="screen">
-<div class="screen-head">
-<div class="kicker">Accès permanent</div>
-<h1 class="title">Mes repères</h1>
-<p class="lede">Cette carte montre les missions franchies, les badges acquis et ce qu’il vous reste à construire. Elle reste accessible pendant tout le parcours.</p>
-</div>
-<div class="screen-body">
-<div class="repere-map" id="repere-map">
-<div class="repere-card" data-mission-card="1"><div class="badge small locked"><div class="badge-inner">M1</div></div><div class="repere-state">À acquérir</div><h4>Maîtriser les repères</h4><ul class="repere-detail"><li data-check-id="bud-m1-reperes">4 repères fondamentaux</li><li data-check-id="bud-m1-acteurs">Acteurs et responsabilités</li><li data-check-id="bud-m1-cycle">Cycle budgétaire</li><li data-check-id="bud-m1-plan">Plan de préparation</li></ul></div>
-<div class="repere-card" data-mission-card="2"><div class="badge small locked"><div class="badge-inner">M2</div></div><div class="repere-state">À acquérir</div><h4>Analyser le dossier</h4><ul class="repere-detail"><li data-check-id="bud-m2-documents">Document adapté au besoin</li><li data-check-id="bud-m2-logiques">Trois logiques budgétaires</li><li data-check-id="bud-m2-evolution">Prévoir / ajuster / constater / orienter</li><li data-check-id="bud-dossier">Analyse des 4 pièces</li></ul></div>
-<div class="repere-card" data-mission-card="3"><div class="badge small locked"><div class="badge-inner">M3</div></div><div class="repere-state">À acquérir</div><h4>Lire les équilibres</h4><ul class="repere-detail"><li data-check-id="bud-m3-sections">Fonctionnement et investissement</li><li data-check-id="bud-m3-calcul">Trois niveaux d’épargne</li><li data-check-id="bud-m3-interpreter">Lecture de trajectoire</li><li data-check-id="bud-m3-reflexe">Réflexe d’analyse</li></ul></div>
-<div class="repere-card" data-mission-card="4"><div class="badge small locked"><div class="badge-inner">M4</div></div><div class="repere-state">À acquérir</div><h4>Interpréter et instruire</h4><ul class="repere-detail"><li data-check-id="bud-m4-indicateurs">Quatre indicateurs</li><li data-check-id="bud-m4-trajectoire">Hypothèses à instruire</li><li data-check-id="bud-m4-simulateur">Comparaison de scénarios</li><li data-check-id="bud-m4-vigilances">Deux vigilances</li></ul></div>
-<div class="repere-card" data-mission-card="5"><div class="badge small locked"><div class="badge-inner">M5</div></div><div class="repere-state">À acquérir</div><h4>Préparer ses échanges</h4><ul class="repere-detail"><li data-check-id="bud-m5-priorites">Trois priorités</li><li data-check-id="bud-m5-interlocuteur">Bon interlocuteur</li><li data-check-id="bud-m5-question">Deux questions</li><li data-check-id="bud-m5-commission">Échange formatif</li></ul></div>
-</div>
-<div class="repere-progress"><span id="repere-progress-bar"></span></div>
-<div class="cta-row"><button class="btn secondary" id="return-from-reperes">Revenir à mon écran</button></div>
-</div>
-</div>
-</section><section class="panel" data-hors-progression="" data-titre="Mon carnet" id="bud-carnet">
+</section><section class="panel" data-hors-progression="" data-titre="Mes repères" id="bud-reperes"><div class="screen"><div class="screen-head"><div class="kicker">Accès permanent</div><h1 class="title">Mes repères ont rejoint mes ressources</h1><p class="lede">La progression, les badges, le carnet et les ressources sont désormais réunis sur une même page.</p></div><div class="screen-body"><div class="cta-row"><button class="btn primary" data-go="bud-ressources" type="button">Ouvrir mes repères et ressources</button></div></div></div></section><section class="panel" data-hors-progression="" data-titre="Mon carnet" id="bud-carnet">
 <div class="screen">
 <div class="screen-head">
 <div class="kicker">Accès permanent</div>
@@ -2525,10 +2529,10 @@ select:focus,input[type=text]:focus,textarea:focus{
 <button class="g-acces-carte" data-go="bud-m5-question" type="button"><b>Préparer mes questions</b><small>Construire deux questions utiles pour un échange de travail</small></button>
 </div></section>
 <section><h3>Mes outils</h3><div class="g-acces-grid">
-<button class="g-acces-carte" data-bud-tool="bud-reperes" type="button"><b>Mes repères</b><small>Badges et acquis des cinq missions</small></button>
+<button class="g-acces-carte" data-go="bud-ressources" type="button"><b>Mes repères et ressources</b><small>Badges, outils, références et accès au carnet</small></button>
 <button class="g-acces-carte" data-bud-tool="bud-carnet" type="button"><b>Mon carnet</b><small>Signaux, constats, vigilances, priorités et questions</small></button>
 <button class="g-acces-carte" data-bud-tool="bud-lexique" type="button"><b>Lexique</b><small>Définitions et formules utiles</small></button>
-<button class="g-acces-carte" data-go="bud-ressources" type="button"><b>Ressources</b><small>Outils, références et ressources de travail</small></button>
+
 </div></section></div>
 </div>
 </div>

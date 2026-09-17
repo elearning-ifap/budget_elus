@@ -1435,8 +1435,154 @@ select:focus,input[type=text]:focus,textarea:focus{
 @media(max-width:640px){.exchange-complete .exchange-pinned-question{grid-template-columns:1fr}.exchange-complete .exchange-pinned-question p{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.exchange-complete .exchange-actions{max-width:none}.exchange-next-head{align-items:flex-start}}
 
 </style>
+
+<style id="budget-v38-tablet">
+/* ============================================================================
+   BUDGET ÉLUS — V8 lot 3.8 · TABLETTE / DESKTOP
+   Cible : ordinateur + tablette. Smartphone volontairement non pris en charge.
+   Cette couche finale neutralise les anciens breakpoints concurrents sans toucher
+   à la logique pédagogique ni aux données du module.
+   ============================================================================ */
+
+/* Sécurisation générale des médias et des débordements. */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg,canvas,video,iframe{max-width:100%}
+.g-accueil-video,.hero-media,.conclusion-media,.g-visuel{overflow:hidden;isolation:isolate}
+.g-accueil-video img,.hero-media img,.conclusion-media img,.g-visuel img{display:block;max-width:100%;margin:0}
+.screen,.card,.doc-card,.activity-card,.exchange-thread,.exchange-choice-panel{min-width:0}
+
+/* Trois médias comportent une mince bande claire dans le fichier source.
+   On la recadre visuellement sans rééchantillonner ni modifier les fichiers. */
+#m1-intro .hero-media img{transform:scale(1.08);transform-origin:center center}
+#m5-intro .hero-media img{transform:scale(1.045);transform-origin:center center}
+#g-fin .final-conclusion-media{overflow:hidden}
+#g-fin .final-conclusion-media img{transform:scale(1.14);transform-origin:center center}
+
+/* Écran de compatibilité : caché par défaut. */
+#budget-device-blocker{display:none}
+
+/* TABLETTE — châssis unique, 768 à 1179 px. */
+@media screen and (min-width:768px) and (max-width:1179px){
+  body{overflow-x:hidden}
+
+  /* En-tête : une ligne compacte, sans sous-titre pour préserver l'espace. */
+  .g-chrome{position:sticky;top:0;z-index:80}
+  .g-chrome-inner{max-width:1180px;padding:10px 16px;gap:8px;flex-wrap:nowrap}
+  .g-chrome .g-titre{min-width:0;flex:1 1 auto;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .g-chrome .g-titre span{display:none}
+  .g-chrome-btn{min-height:44px;padding:8px 10px;white-space:nowrap}
+  .g-chrome #g-btn-menu{display:inline-flex!important;align-items:center;justify-content:center}
+
+  /* Le sommaire devient un panneau superposé : aucun espace permanent perdu. */
+  .g-page{max-width:1180px;padding:18px 18px 112px!important}
+  .g-layout{display:block!important}
+  .g-contenu{width:100%;max-width:1040px!important;margin:0 auto;min-width:0}
+  .g-menu{display:none!important;position:fixed!important;z-index:95;top:68px;left:16px;right:auto;width:min(390px,calc(100vw - 32px));max-height:calc(100dvh - 86px);padding:16px 14px;border-radius:14px;box-shadow:0 16px 42px rgba(35,55,70,.22)}
+  .g-menu.ouvert{display:block!important}
+
+  /* Surface de lecture. */
+  .screen{width:100%;max-width:none;border-radius:16px;overflow:hidden}
+  .screen-head{padding:28px 28px 0!important}
+  .screen-body{padding:22px 28px 32px!important}
+  .title{font-size:clamp(32px,4.5vw,42px);line-height:1.08}
+  .lede{font-size:17px}
+  .g-nav-bas-inner{max-width:1040px;padding:10px 18px}
+  .g-nav-bas .btn{min-height:44px}
+
+  /* Images : jamais déformées, jamais débordantes. */
+  .hero-media,.g-accueil-video,.conclusion-media{max-width:100%}
+  .hero-media img,.g-accueil-video img,.conclusion-media img{width:100%;height:100%;object-fit:cover}
+  .g-visuel img{width:100%;height:auto;object-fit:contain}
+
+  /* Cartes et grilles : tailles tactiles et respirations constantes. */
+  button,.btn,.choice,.signal,.piece,.actor,.doc-tab,.repere-select,.section-pick{min-height:44px}
+  .flip-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px}
+  .flip-card,.flip-inner,.flip-face{min-height:430px;height:430px}
+  .grid4,.money-grid,.kpi-grid,.numbers,.repere-map,.build-board{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .choice-grid,.two-choice{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .question-builder{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+
+  /* Carnet : décor allégé sur tablette pour supprimer la marge/bande latérale. */
+  .notebook{padding:24px!important;min-height:0;background-position:0 0}
+  .notebook:before,.rings{display:none!important}
+  .note-title{font-size:26px;margin-bottom:18px}
+
+  /* Conversation : pleine largeur sur toute tablette, un seul niveau sticky. */
+  .exchange-workspace-body,.exchange-intro-screen .screen-body{max-width:100%;margin:0 auto}
+  .exchange-conversation-shell{grid-template-columns:1fr!important;gap:16px}
+  .exchange-choice-panel{position:static!important;top:auto!important}
+  .exchange-thread{min-height:260px}
+  .exchange-dashboard{top:64px}
+  .dialogue-row{max-width:92%}
+  .exchange-complete .exchange-actions{max-width:none}
+
+  /* Navigation de documents et simulateurs. */
+  .doc-tab{min-height:64px}
+  .dashboard{top:72px}
+  .radar{margin-inline:auto}
+
+  /* Un seul comportement pour les éléments sticky internes. */
+  .sticky-summary{top:70px}
+}
+
+/* TABLETTE PAYSAGE / grande tablette : garder les compositions à deux colonnes utiles. */
+@media screen and (min-width:980px) and (max-width:1179px){
+  .g-accueil-grid{grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr)!important;gap:24px}
+  .intro-layout,.mission-hero{grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr)!important;gap:26px}
+  .cycle-zone{grid-template-columns:230px minmax(0,1fr)!important;gap:20px}
+  .doc-shell{grid-template-columns:220px minmax(0,1fr)!important;gap:18px}
+  .doc-tabs{position:sticky!important;top:82px;grid-template-columns:1fr!important}
+  .sim-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.9fr)!important;gap:18px}
+  .radar-wrap{grid-template-columns:minmax(360px,480px) minmax(0,1fr)!important;gap:22px}
+  .scenario-compare{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .timeline{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+}
+
+/* TABLETTE PORTRAIT / petite tablette : recomposer, jamais rapetisser. */
+@media screen and (min-width:768px) and (max-width:979px){
+  .g-accueil-grid,.intro-layout,.mission-hero,.cycle-zone,.doc-shell,.sim-grid,.radar-wrap{grid-template-columns:1fr!important}
+  .hero-media,.g-accueil-video{width:min(100%,600px);margin-left:auto;margin-right:auto}
+  .actors{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .doc-tabs{position:static!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .doc-nav-title{grid-column:1/-1}
+  .scenario-compare{grid-template-columns:1fr!important}
+  .dashboard{position:static!important}
+  .radar-wrap .radar{max-width:500px}
+  .timeline{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .timeline:before{display:none!important}
+  .credits{grid-template-columns:1fr!important}
+  .exchange-dashboard{position:static!important}
+  .exchange-dashboard .exchange-gauges{grid-template-columns:1fr 1fr!important}
+  .final-conclusion-media{grid-template-columns:1fr!important}
+}
+
+/* SMARTPHONE — volontairement non pris en charge. */
+@media screen and (max-width:767px){
+  body{margin:0;overflow:hidden;background:#F5F7F8}
+  .g-chrome,.g-page,.g-nav-bas,.g-modal,#g-dev{display:none!important}
+  #budget-device-blocker{display:flex;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:24px;background:#F5F7F8}
+  .budget-device-card{width:min(100%,520px);padding:28px 24px;border:1px solid #DDE5EA;border-radius:18px;background:#fff;box-shadow:0 16px 42px rgba(35,55,70,.10);text-align:center}
+  .budget-device-icon{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 16px;border-radius:16px;background:#2F4354;color:#fff;font-size:28px;font-weight:900}
+  .budget-device-card h1{margin:0 0 10px;color:#2F4354;font-size:24px;line-height:1.2}
+  .budget-device-card p{margin:0;color:#60727F;font-size:16px;line-height:1.55}
+  .budget-device-card strong{color:#2F4354}
+}
+
+@media print{
+  #budget-device-blocker{display:none!important}
+}
+</style>
+
 </head>
 <body>
+<div id="budget-device-blocker" role="status" aria-live="polite">
+  <div class="budget-device-card">
+    <div class="budget-device-icon" aria-hidden="true">▣</div>
+    <h1>Ouvrez cette formation sur ordinateur ou tablette</h1>
+    <p>Les documents, graphiques et simulations nécessitent un écran plus large. <strong>Le smartphone n’est pas pris en charge</strong> afin de préserver une expérience de formation lisible et confortable.</p>
+  </div>
+</div>
+
 <header class="g-chrome" role="banner">
 <div class="g-chrome-inner">
 <p class="g-titre" id="g-titre-module">Titre du module
@@ -3066,5 +3212,5 @@ return{init:init,aller:aller,terminer:terminer,confid:confid,droitDate:droitDate
    });
    ============================================================================ */
 </script>
-<script src="app.js?v=8.3.3"></script></body>
+<script src="app.js?v=8.3.8"></script></body>
 </html>

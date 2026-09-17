@@ -1330,6 +1330,52 @@ select:focus,input[type=text]:focus,textarea:focus{
 }
 
 </style>
+
+<style id="bud-v8-exchange-ux">
+/* V8 lot 3.3 — refonte UX des deux échanges de la mission 5. */
+.exchange-intro-screen .screen-body{max-width:980px;margin:0 auto}
+.exchange-intro-note{display:grid;grid-template-columns:46px minmax(0,1fr);gap:14px;align-items:start;padding:18px 20px;margin-bottom:20px;border:1px solid #DDE6EB;border-radius:14px;background:#F7FAFB}
+.exchange-intro-note>span{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--bleu,#2F4354);color:#fff;font-size:22px;font-weight:900}
+.exchange-intro-note strong{display:block;color:var(--bleu,#2F4354);margin-bottom:4px}.exchange-intro-note p{margin:0;color:var(--texte2,#647583)}
+.exchange-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}
+.exchange-intro-card{position:relative;display:flex;flex-direction:column;min-height:250px;padding:20px;border:1px solid #DDE5EA;border-radius:16px;background:#fff;box-shadow:0 6px 22px rgba(35,55,70,.06);overflow:hidden}
+.exchange-intro-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:#CAD6DD}
+.exchange-intro-card.ready::before{background:var(--cnc-or,#F8BB00)}.exchange-intro-card.done::before{background:var(--succes,#2E7D52)}
+.exchange-intro-card.locked{background:#FAFBFC;color:#71808A}.exchange-intro-card.locked::before{background:#D5DEE4}
+.exchange-intro-card-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.exchange-intro-num{font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--bleu,#2F4354)}
+.exchange-state-pill{padding:5px 9px;border-radius:999px;background:#EEF3F6;color:#566B79;font-size:11px;font-weight:900}.ready .exchange-state-pill{background:#FFF4CE;color:#6E5200}.done .exchange-state-pill{background:#E7F4EC;color:#2E7D52}
+.exchange-intro-card h3{margin:0 0 8px;font-size:18px;color:var(--bleu,#2F4354)}.exchange-intro-card blockquote{margin:0 0 14px;padding:0;border:0;font-size:16px;line-height:1.55;color:var(--encre,#263746)}
+.exchange-intro-card .exchange-card-who{margin-top:auto;padding-top:14px;border-top:1px solid #E6ECEF;font-size:13px;color:var(--texte2,#647583)}.exchange-intro-card .exchange-card-who b{color:var(--bleu,#2F4354)}
+.exchange-intro-actions{justify-content:space-between;margin-top:20px}
+
+.exchange-workspace-body{max-width:980px;margin:0 auto;padding-top:16px!important}
+.exchange-dashboard{position:sticky;top:70px;z-index:18;margin:0 0 18px;padding:16px 18px;border:1px solid #DCE5EA;border-radius:16px;background:rgba(255,255,255,.97);box-shadow:0 10px 26px rgba(35,55,70,.08);backdrop-filter:blur(10px)}
+.exchange-dashboard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:10px}
+.exchange-step-identity{display:flex;flex-direction:column;gap:2px}.exchange-step-identity strong{font-size:17px;color:var(--bleu,#2F4354)}
+.exchange-overline{font-size:11px;text-transform:uppercase;letter-spacing:.09em;font-weight:900;color:#6B7C88}.exchange-mini-status{padding:6px 10px;border-radius:999px;background:#EEF3F6;color:var(--bleu,#2F4354);font-size:12px;font-weight:900;white-space:nowrap}
+.exchange-pinned-question{margin:0 0 14px;padding:12px 14px;border-radius:12px;background:#FFF9E8;border:1px solid #F0D581}.exchange-pinned-question .exchange-question-label{display:block;margin-bottom:4px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:#80620D}.exchange-pinned-question p{margin:0;font-weight:700;line-height:1.48;color:var(--encre,#263746)}
+.exchange-dashboard .exchange-gauges{grid-template-columns:1fr 1fr;gap:18px}.exchange-dashboard .gauge{height:10px}
+.exchange-prepared{max-width:980px;margin:0 0 18px!important}.exchange-prepared summary{min-height:44px;display:flex;align-items:center}
+.exchange-conversation-shell{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.85fr);gap:20px;align-items:start}
+.exchange-thread{min-height:390px;padding:18px;border:1px solid #E0E7EB;border-radius:16px;background:#F8FAFB;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.dialogue-row{max-width:90%}.dialogue-row.user-row{justify-self:end}.dialogue-row.service-row{justify-self:start}
+.dialogue-row .bubble{box-shadow:0 3px 10px rgba(35,55,70,.045)}
+.dialogue-row.user-row .bubble{background:#FFF6D9;border:1px solid #F1DB8C}.dialogue-row.service-row .bubble{background:#fff;border:1px solid #DCE6EB}
+.exchange-history{border:1px dashed #CBD7DE;border-radius:12px;background:#F3F6F8;overflow:hidden}.exchange-history summary{cursor:pointer;padding:10px 12px;font-size:12px;font-weight:900;color:#60727F}.exchange-history-content{display:grid;gap:12px;padding:4px 12px 12px}
+.exchange-choice-panel{position:sticky;top:270px;margin:0!important;padding:18px!important;border:1px solid #DCE5EA!important;border-radius:16px!important;background:#fff!important;box-shadow:0 8px 22px rgba(35,55,70,.07)!important}
+.exchange-choice-panel .feedback.show{margin:0 0 14px}.exchange-proposal-head{margin-bottom:14px}.exchange-proposal-head h3{margin:2px 0 4px;font-size:22px;color:var(--bleu,#2F4354)}.exchange-proposal-head p{margin:0;color:var(--texte2,#647583)}
+.exchange-choice-panel .choice-grid{display:grid;grid-template-columns:1fr;gap:10px}.exchange-choice-panel .choice{min-height:0;padding:13px 14px;border-radius:12px;background:#fff;box-shadow:none}.exchange-choice-panel .choice:hover{transform:none;border-color:#8BA6B6;background:#F8FBFC}
+.exchange-choice-panel .choice .exchange-type{margin-bottom:6px;background:#EAF1F5;color:var(--bleu,#2F4354)}
+.exchange-actions{display:flex;justify-content:space-between;gap:10px;margin-top:14px}.exchange-actions .btn{flex:1}.exchange-actions .btn:only-child{flex:0 1 auto;margin-left:auto}
+.exchange-summary{display:grid;gap:14px}.exchange-summary-hero{padding:16px;border-radius:14px;background:#F3F8F5;border:1px solid #C9E2D3}.exchange-summary-hero h3{margin:0 0 5px;color:#285D3E}.exchange-summary-hero p{margin:0}
+.exchange-metric-delta{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exchange-metric-delta>div{padding:12px;border:1px solid #E0E7EB;border-radius:12px;background:#fff}.exchange-metric-delta span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6C7B85;font-weight:900}.exchange-metric-delta b{display:block;margin-top:4px;font-size:22px;color:var(--bleu,#2F4354)}
+.exchange-summary-list{display:grid;gap:8px}.exchange-summary-item{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start;padding:9px 10px;border-radius:10px;background:#F8FAFB}.exchange-summary-item .mark{font-weight:900;color:var(--succes,#2E7D52)}.exchange-summary-item.todo .mark{color:#9A7A18}
+.exchange-final-debrief{display:grid;gap:14px}.exchange-final-debrief .compare{display:grid;grid-template-columns:1fr 1fr;gap:10px}.exchange-final-card{padding:13px;border:1px solid #DFE7EB;border-radius:12px;background:#fff}.exchange-final-card h4{margin:0 0 6px;color:var(--bleu,#2F4354)}.exchange-final-card p{margin:0 0 8px;font-size:13px}.exchange-final-card .mini-metrics{display:flex;gap:8px;flex-wrap:wrap}.exchange-final-card .mini-metrics span{padding:5px 8px;border-radius:999px;background:#EEF3F6;font-size:11px;font-weight:900;color:#526977}
+.exchange-reflex{padding:14px 16px;border-left:5px solid var(--cnc-or,#F8BB00);border-radius:12px;background:#FFF9E8}.exchange-reflex strong{display:block;margin-bottom:4px;color:var(--bleu,#2F4354)}.exchange-reflex p{margin:0}
+@media(max-width:920px){.exchange-conversation-shell{grid-template-columns:1fr}.exchange-choice-panel{position:static}.exchange-thread{min-height:280px}.exchange-dashboard{top:64px}.exchange-intro-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.exchange-dashboard{position:static}.exchange-dashboard-top{align-items:flex-start}.exchange-dashboard .exchange-gauges,.exchange-metric-delta,.exchange-final-debrief .compare{grid-template-columns:1fr}.exchange-intro-actions,.exchange-actions{flex-direction:column}.exchange-intro-actions .btn,.exchange-actions .btn{width:100%}.dialogue-row{max-width:98%}.exchange-workspace-body{padding-left:14px!important;padding-right:14px!important}}
+</style>
 </head>
 <body>
 <header class="g-chrome" role="banner">
@@ -1369,13 +1415,13 @@ select:focus,input[type=text]:focus,textarea:focus{
           4 espace d'entrainement - 5 legende de lecture - 6 Je commence.
           =================================================================== -->
 <!-- 1 - Accroche : sur-titre, titre-promesse, ce que la formation va servir -->
-<div class="g-accueil-intro" data-slot="accroche"><p class="eyebrow">Comprendre et piloter le budget · 5 missions</p><h1>Le dossier budgétaire vient d’arriver.</h1><p class="chapo">Vous avez 12 jours pour préparer votre lecture avant la première réunion d’examen. Le parcours vous accompagne de la prise de repères jusqu’aux questions à poser en commission.</p></div>
+<div class="g-accueil-intro" data-slot="accroche"><p class="eyebrow">Comprendre et piloter le budget · 5 missions</p><h1>Le dossier budgétaire vient d’arriver.</h1><p class="chapo">Vous avez 12 jours pour préparer votre lecture avant la première réunion d’examen. Le parcours vous accompagne de la prise de repères jusqu’aux questions à poser dans les échanges qui préparent la décision.</p></div>
 <!-- 2 - Objectifs de formation (gauche) + video d'introduction (droite) -->
 <div class="g-accueil-grid">
 <div>
 <div class="g-objectifs">
 <h2>Objectifs de formation</h2>
-<ul><li>Vous repérer dans les rôles, le cycle et les documents du budget de la Nouvelle-Calédonie.</li><li>Lire les grands équilibres et comprendre les principaux indicateurs sans les transformer en verdicts automatiques.</li><li>Identifier ce qui mérite d’être instruit et préparer des questions utiles pour la commission.</li></ul>
+<ul><li>Vous repérer dans les rôles, le cycle et les documents du budget de la Nouvelle-Calédonie.</li><li>Lire les grands équilibres et comprendre les principaux indicateurs sans les transformer en verdicts automatiques.</li><li>Identifier ce qui mérite d’être instruit et préparer des questions utiles pour vos échanges de travail.</li></ul>
 </div>
 <!-- 3 - Duree previsionnelle -->
 <div aria-label="Durée prévisionnelle" class="g-duree" role="note">
@@ -1385,7 +1431,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div aria-label="Votre carnet de mission" class="g-carnet-intro" role="note">
 <div aria-hidden="true" class="g-carnet-intro-icon">▣</div>
 <div><h3>Votre carnet de mission vous accompagne dès le départ</h3>
-<p>Au fil des cinq missions, vous y conserverez vos choix utiles : plan de préparation, signaux, constats, vigilances, priorités et questions. Il devient progressivement votre support de préparation pour la commission.</p></div>
+<p>Au fil des cinq missions, vous y conserverez vos choix utiles : plan de préparation, signaux, constats, vigilances, priorités et questions. Il devient progressivement votre support de préparation pour les échanges qui précèdent la décision.</p></div>
 </div>
 </div>
 <figure class="g-accueil-video"><img alt="Un dossier budgétaire fermé, un carnet et un stylo sur un bureau, avec une échéance suggérée en arrière-plan." src="media/BUD-IMG-HERO-DOSSIER-J12.jpg"/><figcaption class="g-video-legende">Votre fil rouge · un dossier à analyser avant la première réunion d’examen.</figcaption></figure>
@@ -1553,7 +1599,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="screen-body">
 <div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">☑</div><div class="bud-consigne-body"><strong>Sélectionnez exactement trois actions.</strong> Elles constitueront votre premier plan de préparation et seront enregistrées dans votre carnet de mission. Après vérification, un choix incorrect est retiré automatiquement ; les bons choix restent sélectionnés.</div></div>
 <div class="choice-grid" id="plan-choices">
-<button class="choice" data-plan="0">Commencer par une vue d’ensemble du dossier et de ses équilibres</button><button class="choice" data-plan="1">Repérer les signaux qui méritent une vérification</button><button class="choice" data-plan="2">Identifier les informations manquantes avant de conclure</button><button class="choice" data-plan="3">Lire chaque ligne budgétaire dans l’ordre sans prioriser</button><button class="choice" data-plan="4">Préparer les demandes d’information pour la commission</button>
+<button class="choice" data-plan="0">Commencer par une vue d’ensemble du dossier et de ses équilibres</button><button class="choice" data-plan="1">Repérer les signaux qui méritent une vérification</button><button class="choice" data-plan="2">Identifier les informations manquantes avant de conclure</button><button class="choice" data-plan="3">Lire chaque ligne budgétaire dans l’ordre sans prioriser</button><button class="choice" data-plan="4">Préparer les demandes d’information pour les échanges de travail</button>
 </div>
 <div class="cta-row"><span class="counter" id="plan-counter">0/3 sélectionnées</span><button class="btn primary" disabled="" id="plan-save">Enregistrer mon plan</button></div>
 </div>
@@ -2061,7 +2107,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 </div>
 <div class="screen-body">
 <div class="grid2">
-<div class="badge-wrap"><div class="badge"><div class="badge-inner">M4</div></div><div><h3>Badge · Interpréter et instruire</h3><p>Vos points de vigilance rejoignent votre carnet pour préparer la commission.</p></div></div>
+<div class="badge-wrap"><div class="badge"><div class="badge-inner">M4</div></div><div><h3>Badge · Interpréter et instruire</h3><p>Vos points de vigilance rejoignent votre carnet pour préparer les échanges de la mission suivante.</p></div></div>
 <div class="carnet-mini"><b>Vos vigilances</b><div class="tags" id="m4-close-carnet" style="margin-top:10px"></div></div>
 </div>
 <div class="cta-row"><button class="btn primary mission-close" data-mission="4">Recevoir mon badge et poursuivre</button></div>
@@ -2070,8 +2116,8 @@ select:focus,input[type=text]:focus,textarea:focus{
 </section><section class="panel" data-sequence="M5" data-titre="Mission 5 · Introduction" id="m5-intro">
 <div class="screen">
 <div class="screen-head">
-<div class="kicker">Mission 5 · Préparer la commission</div>
-<h1 class="title">Votre mission : préparer la commission</h1>
+<div class="kicker">Mission 5 · Préparer vos échanges</div>
+<h1 class="title">Votre mission : préparer des échanges utiles</h1>
 <p class="lede">Vous ne pourrez pas tout approfondir. Il faut prioriser, identifier le bon interlocuteur et transformer vos constats en questions exploitables.</p>
 </div>
 <div class="screen-body">
@@ -2083,7 +2129,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="cta-row"><button class="btn primary" data-complete-go="bud-m5-priorites">Commencer la mission</button></div>
 </div>
 <div class="hero-media">
-<img alt="Une table de commission avec microphones, dossier et carnet préparés, sans personne, pour symboliser la préparation des questions." src="media/BUD-IMG-M5-COMMISSION.jpg"/>
+<img alt="Une table de travail avec microphones, dossier et carnet préparés, sans personne, pour symboliser la préparation des échanges." src="media/BUD-IMG-M5-COMMISSION.jpg"/>
 </div>
 </div>
 </div>
@@ -2091,8 +2137,8 @@ select:focus,input[type=text]:focus,textarea:focus{
 </section><section class="panel" data-sequence="M5" data-titre="Choisir trois priorités" id="bud-m5-priorites">
 <div class="screen">
 <div class="screen-head">
-<div class="kicker">Mission 5 · Préparer la commission</div>
-<h1 class="title">S’il ne fallait retenir que 3 priorités à présenter en commission</h1>
+<div class="kicker">Mission 5 · Préparer vos échanges</div>
+<h1 class="title">S’il ne fallait retenir que 3 priorités à porter dans vos échanges</h1>
 <p class="lede">Votre carnet contient déjà les signaux, constats et vigilances. Il faut maintenant faire un choix : quels sujets justifient le plus une demande d’explication ?</p>
 </div>
 <div class="screen-body">
@@ -2155,30 +2201,47 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="feedback" id="question-transition-feedback" aria-live="polite"></div><div class="cta-row"><button class="btn primary" disabled="" id="question-next">Continuer avec mes 2 questions</button></div>
 </div>
 </div>
-</section><section class="panel" data-sequence="M5" data-titre="Simulation de commission" id="bud-m5-commission">
-<div class="screen">
+</section><section class="panel" data-sequence="M5" data-titre="Préparer vos échanges" id="bud-m5-echanges-intro">
+<div class="screen exchange-intro-screen">
 <div class="screen-head">
-<div class="kicker">Mission 5 · Simulation formative</div>
-<h1 class="title">Menez deux échanges de commission</h1>
-<p class="lede">Chaque question préparée ouvre sa propre conversation avec l’interlocuteur choisi. Vous obtenez une réponse, puis formulez les relances utiles pour instruire la décision.</p>
+<div class="kicker">Mission 5 · Passer de la question à l’échange</div>
+<h1 class="title">Vos deux questions sont prêtes. Mettez-les maintenant à l’épreuve.</h1>
+<p class="lede">Vous allez conduire deux échanges professionnels. L’objectif n’est pas d’obtenir « la bonne réponse », mais de préciser l’information, tester les hypothèses et faire progresser l’instruction du dossier.</p>
 </div>
 <div class="screen-body">
-<div class="sticky-summary exchange-sticky" aria-label="Indicateurs de la simulation">
+<div class="exchange-intro-note"><span aria-hidden="true">↗</span><div><strong>Deux questions, deux points de vue.</strong><p>Chaque échange reprend exactement la question et l’interlocuteur que vous avez choisis. Vous pourrez relancer, vérifier et synthétiser avant de passer au second échange.</p></div></div>
+<div class="exchange-intro-grid" id="exchange-intro-cards" aria-live="polite"></div>
+<div class="cta-row exchange-intro-actions"><button class="btn secondary" type="button" id="exchange-intro-back">Modifier mes questions</button><button class="btn primary" type="button" id="exchange-intro-start">Commencer l’échange 1</button></div>
+</div>
+</div>
+</section><section class="panel" data-sequence="M5" data-titre="Conduire deux échanges" id="bud-m5-commission">
+<div class="screen exchange-workspace-screen">
+<div class="screen-head exchange-screen-head">
+<div class="kicker">Mission 5 · Mise en situation</div>
+<h1 class="title">Conduisez l’échange, une intervention à la fois</h1>
+<p class="lede">Votre question de départ reste visible. À chaque réponse, choisissez la relance qui vous paraît la plus utile pour mieux instruire la décision.</p>
+</div>
+<div class="screen-body exchange-workspace-body">
+<div class="exchange-dashboard" aria-label="Repères de l’échange">
+<div class="exchange-dashboard-top">
+<div class="exchange-step-identity"><span class="exchange-overline" id="exchange-session-label">Échange 1 sur 2</span><strong id="exchange-who-label">Interlocuteur</strong></div>
+<div class="exchange-mini-status" id="exchange-counter">Intervention 1 sur 3</div>
+</div>
+<div class="exchange-pinned-question" id="exchange-active-question" aria-live="polite"></div>
 <div class="exchange-gauges">
 <div class="exchange-gauge-card"><div class="exchange-gauge-head"><span>Précision de l’information</span><b id="gauge-precision-value">0 %</b></div><div class="gauge" id="gauge-precision-track" role="progressbar" aria-label="Précision de l’information" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="gauge-precision"></span></div></div>
 <div class="exchange-gauge-card"><div class="exchange-gauge-head"><span>Avancement de l’instruction</span><b id="gauge-progress-value">0 %</b></div><div class="gauge" id="gauge-progress-track" role="progressbar" aria-label="Avancement de l’instruction" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="gauge-progress"></span></div></div>
 </div>
-<div class="exchange-sim-context"><span>Éléments de votre simulation</span><div class="tags"><span class="note-tag">Rapport</span><span class="note-tag">Trajectoire</span><span class="note-tag">Investissement</span></div></div>
 </div>
-<div class="guidance bud-consigne-bar"><div aria-hidden="true" class="bud-consigne-icon">💬</div><div class="bud-consigne-body"><strong>Menez les deux simulations successivement.</strong> La question active et son interlocuteur restent visibles. Lisez la réponse au centre, puis choisissez la prochaine phrase à prononcer en bas de l’écran.</div></div>
-<div class="exchange-active-question" id="exchange-active-question" aria-live="polite"></div>
-<details class="exchange-prepared"><summary>Voir l’ensemble de mes questions</summary><div class="grid2" id="exchange-question-context"></div></details>
-<div class="dialogue exchange-thread" id="dialogue" aria-live="polite" aria-label="Conversation avec le service support"></div>
-<div class="exchange-proposals" id="exchange-proposals">
-<div class="exchange-proposal-head"><span class="counter" id="exchange-counter">Simulation 1 · échange 1 sur 3</span><h3>Votre prochaine intervention</h3><p>Choisissez la phrase que vous prononceriez à ce stade.</p></div>
-<div class="choice-grid" id="exchange-options"></div>
+<details class="exchange-prepared"><summary>Voir mes deux questions préparées</summary><div class="grid2" id="exchange-question-context"></div></details>
+<div class="exchange-conversation-shell">
+<div class="dialogue exchange-thread" id="dialogue" aria-live="polite" aria-label="Conversation professionnelle"></div>
+<div class="exchange-choice-panel" id="exchange-proposals">
 <div class="feedback" id="exchange-feedback" aria-live="polite"></div>
-<div class="cta-row"><button class="btn secondary" id="exchange-replay" type="button">Rejouer cette simulation</button><button class="btn primary" disabled="" id="exchange-end">Passer à la question 2</button></div>
+<div class="exchange-proposal-head"><span class="exchange-overline">À vous</span><h3 id="exchange-choice-title">Que dites-vous maintenant ?</h3><p id="exchange-choice-help">Choisissez la phrase que vous prononceriez à ce stade.</p></div>
+<div class="choice-grid" id="exchange-options"></div>
+<div class="cta-row exchange-actions"><button class="btn secondary" id="exchange-replay" type="button">Rejouer cet échange</button><button class="btn primary" disabled="" id="exchange-end">Continuer</button></div>
+</div>
 </div>
 </div>
 </div>
@@ -2187,11 +2250,11 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="screen-head">
 <div class="kicker">Mission 5 · Point d’étape</div>
 <h1 class="title">Mission 5 accomplie</h1>
-<p class="lede">Votre préparation est prête. Votre carnet vient d’être enrichi avec vos priorités, vos deux questions et les repères conservés à l’issue de l’échange.</p>
+<p class="lede">Votre préparation est prête. Votre carnet vient d’être enrichi avec vos priorités, vos deux questions et les repères conservés à l’issue de vos deux échanges.</p>
 </div>
 <div class="screen-body">
 <div class="grid2">
-<div class="badge-wrap"><div class="badge"><div class="badge-inner">M5</div></div><div><h3>Badge · Préparer la commission</h3><p>Vous avez achevé les cinq missions du parcours.</p></div></div>
+<div class="badge-wrap"><div class="badge"><div class="badge-inner">M5</div></div><div><h3>Badge · Préparer ses échanges</h3><p>Vous avez achevé les cinq missions du parcours.</p></div></div>
 <div class="carnet-mini"><b>Carnet mis à jour</b><div class="tags" style="margin-top:10px"><span class="note-tag">3 priorités</span><span class="note-tag">2 questions</span><span class="note-tag">6 repères d’échange</span></div><p class="muted" style="margin-top:10px">Le carnet complet reste accessible à tout moment depuis « Mon carnet ».</p></div>
 </div>
 <div class="cta-row"><button class="btn secondary" id="m5-view-carnet" type="button">Voir mon carnet complet</button><button class="btn primary mission-close" data-mission="5">Recevoir mon badge et faire mon positionnement final</button></div>
@@ -2247,7 +2310,7 @@ select:focus,input[type=text]:focus,textarea:focus{
     <div class="check">Vous savez vous repérer dans les acteurs, le cycle et les documents.</div>
     <div class="check">Vous savez lire les grands équilibres et reconstruire les trois niveaux d’épargne.</div>
     <div class="check">Vous utilisez les indicateurs comme des signaux à contextualiser.</div>
-    <div class="check">Vous avez transformé votre analyse en priorités et questions de commission.</div>
+    <div class="check">Vous avez transformé votre analyse en priorités et questions utiles pour vos échanges.</div>
   </div>
 
   <section class="final-badges-section" aria-labelledby="final-badges-title">
@@ -2342,7 +2405,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="repere-card" data-mission-card="2"><div class="badge small locked"><div class="badge-inner">M2</div></div><div class="repere-state">À acquérir</div><h4>Analyser le dossier</h4><ul class="repere-detail"><li data-check-id="bud-m2-documents">Document adapté au besoin</li><li data-check-id="bud-m2-logiques">Trois logiques budgétaires</li><li data-check-id="bud-m2-evolution">Prévoir / ajuster / constater / orienter</li><li data-check-id="bud-dossier">Analyse des 4 pièces</li></ul></div>
 <div class="repere-card" data-mission-card="3"><div class="badge small locked"><div class="badge-inner">M3</div></div><div class="repere-state">À acquérir</div><h4>Lire les équilibres</h4><ul class="repere-detail"><li data-check-id="bud-m3-sections">Fonctionnement et investissement</li><li data-check-id="bud-m3-calcul">Trois niveaux d’épargne</li><li data-check-id="bud-m3-interpreter">Lecture de trajectoire</li><li data-check-id="bud-m3-reflexe">Réflexe d’analyse</li></ul></div>
 <div class="repere-card" data-mission-card="4"><div class="badge small locked"><div class="badge-inner">M4</div></div><div class="repere-state">À acquérir</div><h4>Interpréter et instruire</h4><ul class="repere-detail"><li data-check-id="bud-m4-indicateurs">Quatre indicateurs</li><li data-check-id="bud-m4-trajectoire">Hypothèses à instruire</li><li data-check-id="bud-m4-simulateur">Comparaison de scénarios</li><li data-check-id="bud-m4-vigilances">Deux vigilances</li></ul></div>
-<div class="repere-card" data-mission-card="5"><div class="badge small locked"><div class="badge-inner">M5</div></div><div class="repere-state">À acquérir</div><h4>Préparer la commission</h4><ul class="repere-detail"><li data-check-id="bud-m5-priorites">Trois priorités</li><li data-check-id="bud-m5-interlocuteur">Bon interlocuteur</li><li data-check-id="bud-m5-question">Deux questions</li><li data-check-id="bud-m5-commission">Échange formatif</li></ul></div>
+<div class="repere-card" data-mission-card="5"><div class="badge small locked"><div class="badge-inner">M5</div></div><div class="repere-state">À acquérir</div><h4>Préparer ses échanges</h4><ul class="repere-detail"><li data-check-id="bud-m5-priorites">Trois priorités</li><li data-check-id="bud-m5-interlocuteur">Bon interlocuteur</li><li data-check-id="bud-m5-question">Deux questions</li><li data-check-id="bud-m5-commission">Échange formatif</li></ul></div>
 </div>
 <div class="repere-progress"><span id="repere-progress-bar"></span></div>
 <div class="cta-row"><button class="btn secondary" id="return-from-reperes">Revenir à mon écran</button></div>
@@ -2407,7 +2470,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <div class="g-modal-corps" data-slot="acces"><section><h3>J’ai besoin d’un repère</h3><div class="g-acces-grid">
 <button class="g-acces-carte" data-go="bud-m1-reperes" type="button"><b>Les 4 repères</b><small>Principes, sections, cycle, indicateurs</small></button>
 <button class="g-acces-carte" data-go="bud-m4-simulateur" type="button"><b>Comparer deux scénarios</b><small>Explorer des hypothèses sans les confondre avec une prévision</small></button>
-<button class="g-acces-carte" data-go="bud-m5-question" type="button"><b>Préparer mes questions</b><small>Construire deux questions utiles pour la commission</small></button>
+<button class="g-acces-carte" data-go="bud-m5-question" type="button"><b>Préparer mes questions</b><small>Construire deux questions utiles pour un échange de travail</small></button>
 </div></section>
 <section><h3>Mes outils</h3><div class="g-acces-grid">
 <button class="g-acces-carte" data-bud-tool="bud-reperes" type="button"><b>Mes repères</b><small>Badges et acquis des cinq missions</small></button>
@@ -2424,7 +2487,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 <button class="btn btn-primaire" id="g-btn-suiv">Suivant →</button>
 </div>
 </nav>
-<script>window.BUDGET_DATA={"SEQ": ["g-contrat", "g-pre", "m1-intro", "bud-m1-reperes", "bud-m1-acteurs", "bud-m1-regle", "bud-m1-cycle", "bud-m1-plan", "m1-close", "m2-intro", "bud-m2-documents", "bud-m2-logiques", "bud-m2-evolution", "bud-dossier", "m2-close", "m3-intro", "bud-m3-sections", "bud-m3-calcul", "bud-m3-interpreter", "bud-m3-constats", "bud-m3-reflexe", "m3-close", "m4-intro", "bud-m4-indicateurs", "bud-m4-trajectoire", "bud-m4-simulateur", "bud-m4-vigilances", "m4-close", "m5-intro", "bud-m5-priorites", "bud-m5-interlocuteur", "bud-m5-question", "bud-m5-commission", "m5-close", "g-post", "g-fin", "bud-ressources", "bud-credits"], "COMP": ["Repérer les documents utiles dans un dossier budgétaire", "Situer le rôle des acteurs du cycle budgétaire", "Lire les grands équilibres entre fonctionnement et investissement", "Comprendre et interpréter les principaux indicateurs financiers", "Identifier les points qui nécessitent une vérification ou un approfondissement", "Formuler des questions utiles pour préparer l’examen en commission"], "LEVELS": ["Je ne sais pas encore faire", "J’ai besoin d’être guidé", "Je peux le faire avec quelques repères", "Je peux le faire seul"], "DOC_NEEDS": [["Comprendre ce qui est prévu pour l’exercice à venir", "Budget primitif", "Compte administratif", 0, "Le budget primitif présente les prévisions et les autorisations de l’exercice à venir. Le compte administratif retrace l’exécution passée."], ["Identifier un ajustement décidé en cours d’exercice", "Décision modificative", "Budget primitif", 0, "La décision modificative ajuste les autorisations en cours d’exercice. Le budget primitif pose la prévision initiale."], ["Comparer prévision et exécution réelle", "Compte administratif", "Budget primitif seulement", 0, "Le compte administratif retrace l’exécution réelle ; il permet de confronter ce qui a été réalisé à ce qui avait été prévu."], ["Comprendre les grandes orientations avant l’examen du budget primitif", "Débat sur les orientations budgétaires", "Décision modificative", 0, "Le débat sur les orientations budgétaires précède l’examen du budget primitif et porte sur les orientations et engagements pluriannuels envisagés."]], "EVOL_CASES": [["Préparer les autorisations et prévisions de l’exercice à venir", "Budget primitif", "Décision modificative", "bp"], ["Ajuster des autorisations en cours d’exercice", "Décision modificative", "Budget primitif", "dm"], ["Constater l’exécution réelle de l’exercice", "Compte administratif", "Budget primitif", "ca"], ["Débattre des grandes orientations avant l’examen du budget primitif", "Débat sur les orientations budgétaires", "Compte administratif", "dob"]], "DOSSIER": {"rapport": {"title": "Rapport de présentation", "summary": "Synthèse des hypothèses, des priorités et des grands équilibres du projet.", "metrics": [["Recettes de fonctionnement", "182 Md", " +2,3 %"], ["Dépenses de fonctionnement", "169 Md", "+4,1 %"], ["Épargne brute", "13 Md", "−18 %"], ["Investissements", "22 Md", "59 % épargne · 14 % subventions · 27 % emprunt"]], "options": [["L’épargne brute recule de 18 %.", 1], ["Les dépenses de fonctionnement progressent plus vite que les recettes.", 1], ["27 % des investissements sont financés par l’emprunt.", 1], ["Les recettes progressent de 2,3 %, ce qui suffit à conclure à une amélioration durable.", 0], ["Le budget est équilibré : aucun autre signal ne doit être instruit.", 0]], "hints": ["Comparez d’abord le rythme d’évolution des recettes et des dépenses.", "Regardez ensuite l’évolution de l’épargne brute.", "Enfin, observez la structure de financement de l’investissement."]}, "maquette": {"title": "Maquette budgétaire", "summary": "Lecture comparée des principaux postes de fonctionnement et du financement de l’investissement.", "metrics": [["Recettes fonctionnement", "182", "178 en N−1"], ["Dépenses fonctionnement", "169", "162 en N−1"], ["Personnel", "98", "94 en N−1"], ["Épargne brute", "13", "16 en N−1"], ["Nouvel emprunt", "6", "8 Md de capital remboursé"]], "options": [["Les dépenses de personnel passent de 94 à 98 Md F CFP et représentent une part importante des dépenses.", 1], ["L’épargne brute passe de 16 à 13 Md F CFP.", 1], ["Le nouvel emprunt de 6 Md est à rapprocher des 8 Md de capital remboursé.", 1], ["La hausse des recettes suffit à neutraliser toute vigilance sur les charges.", 0], ["Un résultat budgétaire nul suffit, à lui seul, à juger la soutenabilité.", 0]], "hints": ["Commencez par les postes qui pèsent le plus dans les dépenses.", "Comparez ensuite l’épargne entre N−1 et N.", "Pour la dette, rapprochez le nouvel emprunt du remboursement du capital."]}, "trajectoire": {"title": "Trajectoire sur trois exercices", "summary": "Évolution des recettes, dépenses, épargne, investissement, emprunt et dette.", "metrics": [["Épargne brute", "22 → 16 → 13", "Md"], ["Dette", "75 → 88 → 95", "Md"], ["Désendettement", "3,4 → 5,5 → 7,3", "ans"], ["Nouvel emprunt", "3 → 12 → 6", "Md"], ["Dépense exceptionnelle N−1", "6", "Md"]], "options": [["L’épargne brute passe de 22 à 13 Md F CFP en trois exercices.", 1], ["La capacité de désendettement évolue de 3,4 à 7,3 ans.", 1], ["La dépense exceptionnelle de N−1 n’explique pas, à elle seule, la poursuite de la dégradation en N.", 1], ["Le nouvel emprunt baisse de 12 à 6 Md en N : cela suffit à conclure que la trajectoire globale s’améliore.", 0], ["L’investissement passe de 24 à 22 Md : aucun approfondissement n’est donc nécessaire.", 0]], "hints": ["Regardez les tendances sur les trois exercices, pas seulement N−1 → N.", "Rapprochez épargne brute et capacité de désendettement.", "La dépense exceptionnelle disparaît en N : que se passe-t-il malgré cela ?"]}, "invest": {"title": "Fiche investissement", "summary": "Projet routier pluriannuel : coûts, autofinancement, subventions et autorisations.", "metrics": [["Coût total", "8,5 Md", "180 km"], ["N / N+1 / N+2", "3,2 / 2,8 / 2,5", "Md"], ["Autofinancement", "1,9 / 1,5 / 1,4", "Md"], ["Subvention", "0,8 / 0,8 / 0,6", "Md"], ["Emprunt", "0,5 / 0,5 / 0,5", "Md"]], "options": [["Les subventions des premières tranches dépendent encore de la signature du contrat.", 1], ["Les tranches N+1 et N+2 mobilisent 2,9 Md F CFP d’autofinancement.", 1], ["Aucune autorisation de programme n’est encore votée pour les tranches N+1 et N+2.", 1], ["La subvention de la troisième tranche est certaine et ne nécessite plus de vigilance.", 0], ["Le financement de l’année N suffit à sécuriser automatiquement les deux tranches suivantes.", 0]], "hints": ["Distinguez ce qui est annoncé de ce qui est juridiquement/contractuellement sécurisé.", "Additionnez l’autofinancement des deux tranches futures.", "Vérifiez les autorisations nécessaires pour les années suivantes."]}}, "PLAN_ACTIONS": ["Commencer par une vue d’ensemble du dossier et de ses équilibres", "Repérer les signaux qui méritent une vérification", "Identifier les informations manquantes avant de conclure", "Lire chaque ligne budgétaire dans l’ordre sans prioriser", "Préparer les demandes d’information pour la commission"]};</script><script>
+<script>window.BUDGET_DATA={"SEQ": ["g-contrat", "g-pre", "m1-intro", "bud-m1-reperes", "bud-m1-acteurs", "bud-m1-regle", "bud-m1-cycle", "bud-m1-plan", "m1-close", "m2-intro", "bud-m2-documents", "bud-m2-logiques", "bud-m2-evolution", "bud-dossier", "m2-close", "m3-intro", "bud-m3-sections", "bud-m3-calcul", "bud-m3-interpreter", "bud-m3-constats", "bud-m3-reflexe", "m3-close", "m4-intro", "bud-m4-indicateurs", "bud-m4-trajectoire", "bud-m4-simulateur", "bud-m4-vigilances", "m4-close", "m5-intro", "bud-m5-priorites", "bud-m5-interlocuteur", "bud-m5-question", "bud-m5-echanges-intro", "bud-m5-commission", "m5-close", "g-post", "g-fin", "bud-ressources", "bud-credits"], "COMP": ["Repérer les documents utiles dans un dossier budgétaire", "Situer le rôle des acteurs du cycle budgétaire", "Lire les grands équilibres entre fonctionnement et investissement", "Comprendre et interpréter les principaux indicateurs financiers", "Identifier les points qui nécessitent une vérification ou un approfondissement", "Formuler des questions utiles pour préparer un échange de travail"], "LEVELS": ["Je ne sais pas encore faire", "J’ai besoin d’être guidé", "Je peux le faire avec quelques repères", "Je peux le faire seul"], "DOC_NEEDS": [["Comprendre ce qui est prévu pour l’exercice à venir", "Budget primitif", "Compte administratif", 0, "Le budget primitif présente les prévisions et les autorisations de l’exercice à venir. Le compte administratif retrace l’exécution passée."], ["Identifier un ajustement décidé en cours d’exercice", "Décision modificative", "Budget primitif", 0, "La décision modificative ajuste les autorisations en cours d’exercice. Le budget primitif pose la prévision initiale."], ["Comparer prévision et exécution réelle", "Compte administratif", "Budget primitif seulement", 0, "Le compte administratif retrace l’exécution réelle ; il permet de confronter ce qui a été réalisé à ce qui avait été prévu."], ["Comprendre les grandes orientations avant l’examen du budget primitif", "Débat sur les orientations budgétaires", "Décision modificative", 0, "Le débat sur les orientations budgétaires précède l’examen du budget primitif et porte sur les orientations et engagements pluriannuels envisagés."]], "EVOL_CASES": [["Préparer les autorisations et prévisions de l’exercice à venir", "Budget primitif", "Décision modificative", "bp"], ["Ajuster des autorisations en cours d’exercice", "Décision modificative", "Budget primitif", "dm"], ["Constater l’exécution réelle de l’exercice", "Compte administratif", "Budget primitif", "ca"], ["Débattre des grandes orientations avant l’examen du budget primitif", "Débat sur les orientations budgétaires", "Compte administratif", "dob"]], "DOSSIER": {"rapport": {"title": "Rapport de présentation", "summary": "Synthèse des hypothèses, des priorités et des grands équilibres du projet.", "metrics": [["Recettes de fonctionnement", "182 Md", " +2,3 %"], ["Dépenses de fonctionnement", "169 Md", "+4,1 %"], ["Épargne brute", "13 Md", "−18 %"], ["Investissements", "22 Md", "59 % épargne · 14 % subventions · 27 % emprunt"]], "options": [["L’épargne brute recule de 18 %.", 1], ["Les dépenses de fonctionnement progressent plus vite que les recettes.", 1], ["27 % des investissements sont financés par l’emprunt.", 1], ["Les recettes progressent de 2,3 %, ce qui suffit à conclure à une amélioration durable.", 0], ["Le budget est équilibré : aucun autre signal ne doit être instruit.", 0]], "hints": ["Comparez d’abord le rythme d’évolution des recettes et des dépenses.", "Regardez ensuite l’évolution de l’épargne brute.", "Enfin, observez la structure de financement de l’investissement."]}, "maquette": {"title": "Maquette budgétaire", "summary": "Lecture comparée des principaux postes de fonctionnement et du financement de l’investissement.", "metrics": [["Recettes fonctionnement", "182", "178 en N−1"], ["Dépenses fonctionnement", "169", "162 en N−1"], ["Personnel", "98", "94 en N−1"], ["Épargne brute", "13", "16 en N−1"], ["Nouvel emprunt", "6", "8 Md de capital remboursé"]], "options": [["Les dépenses de personnel passent de 94 à 98 Md F CFP et représentent une part importante des dépenses.", 1], ["L’épargne brute passe de 16 à 13 Md F CFP.", 1], ["Le nouvel emprunt de 6 Md est à rapprocher des 8 Md de capital remboursé.", 1], ["La hausse des recettes suffit à neutraliser toute vigilance sur les charges.", 0], ["Un résultat budgétaire nul suffit, à lui seul, à juger la soutenabilité.", 0]], "hints": ["Commencez par les postes qui pèsent le plus dans les dépenses.", "Comparez ensuite l’épargne entre N−1 et N.", "Pour la dette, rapprochez le nouvel emprunt du remboursement du capital."]}, "trajectoire": {"title": "Trajectoire sur trois exercices", "summary": "Évolution des recettes, dépenses, épargne, investissement, emprunt et dette.", "metrics": [["Épargne brute", "22 → 16 → 13", "Md"], ["Dette", "75 → 88 → 95", "Md"], ["Désendettement", "3,4 → 5,5 → 7,3", "ans"], ["Nouvel emprunt", "3 → 12 → 6", "Md"], ["Dépense exceptionnelle N−1", "6", "Md"]], "options": [["L’épargne brute passe de 22 à 13 Md F CFP en trois exercices.", 1], ["La capacité de désendettement évolue de 3,4 à 7,3 ans.", 1], ["La dépense exceptionnelle de N−1 n’explique pas, à elle seule, la poursuite de la dégradation en N.", 1], ["Le nouvel emprunt baisse de 12 à 6 Md en N : cela suffit à conclure que la trajectoire globale s’améliore.", 0], ["L’investissement passe de 24 à 22 Md : aucun approfondissement n’est donc nécessaire.", 0]], "hints": ["Regardez les tendances sur les trois exercices, pas seulement N−1 → N.", "Rapprochez épargne brute et capacité de désendettement.", "La dépense exceptionnelle disparaît en N : que se passe-t-il malgré cela ?"]}, "invest": {"title": "Fiche investissement", "summary": "Projet routier pluriannuel : coûts, autofinancement, subventions et autorisations.", "metrics": [["Coût total", "8,5 Md", "180 km"], ["N / N+1 / N+2", "3,2 / 2,8 / 2,5", "Md"], ["Autofinancement", "1,9 / 1,5 / 1,4", "Md"], ["Subvention", "0,8 / 0,8 / 0,6", "Md"], ["Emprunt", "0,5 / 0,5 / 0,5", "Md"]], "options": [["Les subventions des premières tranches dépendent encore de la signature du contrat.", 1], ["Les tranches N+1 et N+2 mobilisent 2,9 Md F CFP d’autofinancement.", 1], ["Aucune autorisation de programme n’est encore votée pour les tranches N+1 et N+2.", 1], ["La subvention de la troisième tranche est certaine et ne nécessite plus de vigilance.", 0], ["Le financement de l’année N suffit à sécuriser automatiquement les deux tranches suivantes.", 0]], "hints": ["Distinguez ce qui est annoncé de ce qui est juridiquement/contractuellement sécurisé.", "Additionnez l’autofinancement des deux tranches futures.", "Vérifiez les autorisations nécessaires pour les années suivantes."]}}, "PLAN_ACTIONS": ["Commencer par une vue d’ensemble du dossier et de ses équilibres", "Repérer les signaux qui méritent une vérification", "Identifier les informations manquantes avant de conclure", "Lire chaque ligne budgétaire dans l’ordre sans prioriser", "Préparer les demandes d’information pour les échanges de travail"]};</script><script>
 /* ============================================================================
    GABARIT NOYAU v1.7
    Modules e-learning des élus du Congrès de la Nouvelle-Calédonie × IFAP
@@ -2613,7 +2676,7 @@ function afficherDelta(){var z=$('#g-delta-zone');if(!z)return;z.innerHTML='';
   z.appendChild(d)});
  var mAv=moyenne(ref),mAp=moyenne(etat.post),ec=(mAp-mAv).toFixed(1),c=document.createElement('div');
  c.className='encadre '+(mAp>=mAv?'encadre-cle':'encadre-attention');
- c.innerHTML=(mAp>=mAv)?'<h4>Progression moyenne : +'+ec+' point sur 4</h4><p>Le module a fait son travail. Le vôtre commence en commission.</p>'
+ c.innerHTML=(mAp>=mAv)?'<h4>Progression moyenne : +'+ec+' point sur 4</h4><p>Le module a fait son travail. Le vôtre continue dans les échanges qui préparent la décision.</p>'
   :'<h4>Vous vous situez plus bas qu\'au départ</h4><p>C\'est un signe fréquent, et plutôt bon : vous disposez maintenant des repères qui permettent de mesurer ce que vous ne saviez pas.</p>';
  z.insertBefore(c,z.firstChild)}
 
@@ -2947,5 +3010,5 @@ return{init:init,aller:aller,terminer:terminer,confid:confid,droitDate:droitDate
    });
    ============================================================================ */
 </script>
-<script src="app.js?v=8.3.2"></script></body>
+<script src="app.js?v=8.3.3"></script></body>
 </html>

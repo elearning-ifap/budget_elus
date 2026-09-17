@@ -1,6 +1,6 @@
 # Formation « Comprendre et piloter le budget »
 
-Version autonome GitHub Pages — V8 lot 3.2, correctif mission 5.
+Version autonome GitHub Pages — V8 lot 3.3, refonte UX de la mission 5.
 
 ## Mise en ligne
 
@@ -19,14 +19,18 @@ Le fichier `index.html` doit rester à la racine. Les dossiers `media` et `resou
 - `resources/` : fiches PDF téléchargeables ;
 - `.nojekyll` : publication statique sans transformation Jekyll.
 
-## Correctif V8 lot 3.2
+## Évolutions V8 lot 3.3
 
-- restauration/enrichissement des choix du constructeur de questions ;
-- sécurisation de l’enregistrement des deux questions avant la simulation ;
-- simulation 1 alimentée par la question 1 ;
-- simulation 2 alimentée par la question 2 ;
-- conservation de l’évolution sur les acteurs du cycle budgétaire ;
-- compatibilité avec l’état antérieur du module.
+- conservation du correctif V8 lot 3.2 sur les deux questions et leur transmission aux deux échanges ;
+- ajout d’un écran de transition présentant les deux questions avant la mise en situation ;
+- remplacement de la logique « simulation de commission » par deux **échanges professionnels** ;
+- question et interlocuteur actifs maintenus en tête de l’écran ;
+- indicateurs « précision de l’information » et « avancement de l’instruction » maintenus en permanence ;
+- conversation transformée en véritable fil de dialogue ;
+- anciennes interventions repliables pour limiter la hauteur de page ;
+- choix de la prochaine intervention regroupés dans un panneau dédié ;
+- débrief après le premier échange puis bilan comparatif après le second ;
+- vocabulaire de la mission 5 élargi aux échanges de travail, sans imposer le contexte d’une commission.
 
 ## Attention
 

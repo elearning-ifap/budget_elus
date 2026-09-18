@@ -1,6 +1,6 @@
-# Budget des élus — V8 lot 3.8 — optimisation tablette
+# Budget des élus — V8 lot 3.10 — principes budgétaires illustrés
 
-Version GitHub Pages issue de la V8 lot 3.7. Cette passe ne modifie ni le corpus pédagogique ni les activités : elle sécurise l’affichage sur ordinateur et tablette.
+Version GitHub Pages consolidant les passes tablette, relecture Émilie et fondamentaux renforcés. La V8 lot 3.10 améliore la mémorisation des six principes sans modifier leur contenu de fond.
 
 ## Cibles d’affichage
 
@@ -59,3 +59,13 @@ Les montants du cas restent fictifs. Ils servent à entraîner la méthode de le
 - Le cycle précise, pour chaque étape, le repère documentaire et l'action attendue de l'élu.
 - Les quatre indicateurs sont définis avant les activités de calcul et d'interprétation.
 - Aucune date juridique nouvelle n'a été ajoutée à ce palier.
+
+## V8 lot 3.10 — principes budgétaires illustrés
+- Le contenu des six principes reste inchangé sur le fond : la passe porte sur l'UX et la mémorisation.
+- Les six blocs documentaires sont remplacés par des cartes courtes à révélation.
+- Chaque principe dispose d'un pictogramme SVG intégré au module, d'une phrase-clé et d'un développement en deux niveaux : « Ce que cela signifie » et « Votre réflexe d'élu ».
+- Une seule carte est ouverte à la fois afin de limiter la densité visuelle.
+- Un indicateur `0/6 → 6/6` matérialise l'exploration des principes ; la synthèse apparaît après consultation des six cartes.
+- Les pictogrammes sont des SVG HTML/CSS : aucune image supplémentaire, aucun média externe, aucun risque de flou sur tablette.
+- Sur tablette, la grille passe à 2 × 3 ; la carte ouverte prend la largeur disponible pour conserver une lecture confortable.
+- La consultation des principes est persistée dans l'état du module afin que la synthèse reste acquise à la reprise.

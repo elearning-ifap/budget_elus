@@ -1438,7 +1438,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 
 <style id="budget-v38-tablet">
 /* ============================================================================
-   BUDGET ÉLUS — V8 lot 3.9 · FONDAMENTAUX + TABLETTE / DESKTOP
+   BUDGET ÉLUS — V8 lot 3.11 · TABLETTE XIAOMI / DÉTECTION APPAREIL
    Cible : ordinateur + tablette. Smartphone volontairement non pris en charge.
    Cette couche finale neutralise les anciens breakpoints concurrents sans toucher
    à la logique pédagogique ni aux données du module.
@@ -1556,17 +1556,15 @@ img,svg,canvas,video,iframe{max-width:100%}
   .final-conclusion-media{grid-template-columns:1fr!important}
 }
 
-/* SMARTPHONE — volontairement non pris en charge. */
-@media screen and (max-width:767px){
-  body{margin:0;overflow:hidden;background:#F5F7F8}
-  .g-chrome,.g-page,.g-nav-bas,.g-modal,#g-dev{display:none!important}
-  #budget-device-blocker{display:flex;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:24px;background:#F5F7F8}
-  .budget-device-card{width:min(100%,520px);padding:28px 24px;border:1px solid #DDE5EA;border-radius:18px;background:#fff;box-shadow:0 16px 42px rgba(35,55,70,.10);text-align:center}
-  .budget-device-icon{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 16px;border-radius:16px;background:#2F4354;color:#fff;font-size:28px;font-weight:900}
-  .budget-device-card h1{margin:0 0 10px;color:#2F4354;font-size:24px;line-height:1.2}
-  .budget-device-card p{margin:0;color:#60727F;font-size:16px;line-height:1.55}
-  .budget-device-card strong{color:#2F4354}
-}
+/* POLITIQUE APPAREIL — pilotée par détection JS, jamais par la seule largeur. */
+html.budget-phone body{margin:0;overflow:hidden;background:#F5F7F8}
+html.budget-phone .g-chrome,html.budget-phone .g-page,html.budget-phone .g-nav-bas,html.budget-phone .g-modal,html.budget-phone #g-dev{display:none!important}
+html.budget-phone #budget-device-blocker{display:flex;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:24px;background:#F5F7F8}
+.budget-device-card{width:min(100%,520px);padding:28px 24px;border:1px solid #DDE5EA;border-radius:18px;background:#fff;box-shadow:0 16px 42px rgba(35,55,70,.10);text-align:center}
+.budget-device-icon{display:grid;place-items:center;width:58px;height:58px;margin:0 auto 16px;border-radius:16px;background:#2F4354;color:#fff;font-size:28px;font-weight:900}
+.budget-device-card h1{margin:0 0 10px;color:#2F4354;font-size:24px;line-height:1.2}
+.budget-device-card p{margin:0;color:#60727F;font-size:16px;line-height:1.55}
+.budget-device-card strong{color:#2F4354}
 
 @media print{
   #budget-device-blocker{display:none!important}
@@ -1611,7 +1609,95 @@ img,svg,canvas,video,iframe{max-width:100%}
 @media(max-width:1050px){.repere-foundation-head{grid-template-columns:1fr}.principle-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.principle-card.is-open{grid-column:1/-1}.principle-card.is-open .principle-toggle{min-height:0;grid-template-columns:56px minmax(0,1fr);grid-template-areas:'icon kicker' 'icon title' 'hook hook' 'open open'}.section-link-grid{grid-template-columns:1fr}.section-link-arrow{transform:rotate(90deg);min-height:28px}.section-link-card{min-height:0}.cycle-learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.indicator-foundation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:850px){.principle-progress{align-items:flex-start;flex-direction:column}.principle-toggle{min-height:190px}}
 @media(prefers-reduced-motion:reduce){.principle-card,.principle-progress-dots span{transition:none!important}}
+
+/* TABLETTE DÉTECTÉE — fonctionne même si Chrome/Moodle expose < 768 CSS px. */
+@media screen and (max-width:1179px){
+  html.budget-tablet body{overflow-x:hidden}
+  html.budget-tablet .g-chrome{position:sticky;top:0;z-index:80}
+  html.budget-tablet .g-chrome-inner{max-width:1180px;padding:10px 14px;gap:7px;flex-wrap:nowrap}
+  html.budget-tablet .g-chrome .g-titre{min-width:0;flex:1 1 auto;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  html.budget-tablet .g-chrome .g-titre span{display:none}
+  html.budget-tablet .g-chrome-btn{min-height:44px;padding:8px 10px;white-space:nowrap}
+  html.budget-tablet .g-chrome #g-btn-menu{display:inline-flex!important;align-items:center;justify-content:center}
+  html.budget-tablet .g-page{max-width:1180px;padding:16px 14px 112px!important}
+  html.budget-tablet .g-layout{display:block!important;padding:0!important}
+  html.budget-tablet .g-contenu{width:100%;max-width:1040px!important;margin:0 auto;min-width:0}
+  html.budget-tablet .g-menu{display:none!important;position:fixed!important;z-index:95;top:68px;left:12px;right:12px;width:auto;max-height:calc(100dvh - 86px);padding:16px 14px;border-radius:14px;box-shadow:0 16px 42px rgba(35,55,70,.22)}
+  html.budget-tablet .g-menu.ouvert{display:block!important}
+  html.budget-tablet .screen{width:100%;max-width:none;border-radius:16px;overflow:hidden}
+  html.budget-tablet .screen-head{padding:24px 20px 0!important}
+  html.budget-tablet .screen-body{padding:20px 20px 30px!important}
+  html.budget-tablet .title{font-size:clamp(30px,5.5vw,40px);line-height:1.08}
+  html.budget-tablet .lede{font-size:17px}
+  html.budget-tablet .g-nav-bas-inner{max-width:1040px;padding:10px 14px}
+  html.budget-tablet .g-nav-bas .btn{min-height:44px}
+  html.budget-tablet .hero-media,html.budget-tablet .g-accueil-video,html.budget-tablet .conclusion-media{max-width:100%}
+  html.budget-tablet .hero-media img,html.budget-tablet .g-accueil-video img,html.budget-tablet .conclusion-media img{width:100%;height:100%;object-fit:cover}
+  html.budget-tablet .g-visuel img{width:100%;height:auto;object-fit:contain}
+  html.budget-tablet button,html.budget-tablet .btn,html.budget-tablet .choice,html.budget-tablet .signal,html.budget-tablet .piece,html.budget-tablet .actor,html.budget-tablet .doc-tab,html.budget-tablet .repere-select,html.budget-tablet .section-pick{min-height:44px}
+  html.budget-tablet .notebook{padding:22px!important;min-height:0;background-position:0 0}
+  html.budget-tablet .notebook:before,html.budget-tablet .rings{display:none!important}
+  html.budget-tablet .exchange-conversation-shell{grid-template-columns:1fr!important;gap:16px}
+  html.budget-tablet .exchange-choice-panel{position:static!important;top:auto!important}
+  html.budget-tablet .exchange-thread{min-height:260px}
+  html.budget-tablet .exchange-dashboard{position:static!important}
+  html.budget-tablet .dialogue-row{max-width:96%}
+  html.budget-tablet .dashboard{position:static!important}
+  html.budget-tablet .radar{margin-inline:auto;max-width:100%}
+  html.budget-tablet .sticky-summary{top:70px}
+  html.budget-tablet .g-accueil-grid,html.budget-tablet .intro-layout,html.budget-tablet .mission-hero,html.budget-tablet .cycle-zone,html.budget-tablet .doc-shell,html.budget-tablet .sim-grid,html.budget-tablet .radar-wrap{grid-template-columns:1fr!important}
+  html.budget-tablet .hero-media,html.budget-tablet .g-accueil-video{width:min(100%,650px);margin-left:auto;margin-right:auto}
+  html.budget-tablet .actors{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  html.budget-tablet .doc-tabs{position:static!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html.budget-tablet .doc-nav-title{grid-column:1/-1}
+  html.budget-tablet .flip-grid,html.budget-tablet .grid4,html.budget-tablet .money-grid,html.budget-tablet .kpi-grid,html.budget-tablet .numbers,html.budget-tablet .repere-map,html.budget-tablet .build-board,html.budget-tablet .question-builder{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html.budget-tablet .grid2,html.budget-tablet .choice-grid,html.budget-tablet .two-choice,html.budget-tablet .indicator-foundation-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html.budget-tablet .scenario-compare{grid-template-columns:1fr!important}
+  html.budget-tablet .timeline{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  html.budget-tablet .timeline:before{display:none!important}
+  html.budget-tablet .credits{grid-template-columns:1fr!important}
+  html.budget-tablet .final-conclusion-media{grid-template-columns:1fr!important}
+  html.budget-tablet .principle-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html.budget-tablet .principle-card.is-open{grid-column:1/-1}
+  html.budget-tablet .cycle-learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+/* Très petite largeur de viewport sur tablette : préserver la lisibilité sans basculer en mode smartphone. */
+@media screen and (max-width:599px){
+  html.budget-tablet .g-page{padding-left:10px!important;padding-right:10px!important}
+  html.budget-tablet .screen-head{padding-left:16px!important;padding-right:16px!important}
+  html.budget-tablet .screen-body{padding-left:16px!important;padding-right:16px!important}
+  html.budget-tablet .title{font-size:30px}
+  html.budget-tablet .principle-grid,html.budget-tablet .flip-grid,html.budget-tablet .grid4,html.budget-tablet .money-grid,html.budget-tablet .kpi-grid,html.budget-tablet .numbers,html.budget-tablet .repere-map,html.budget-tablet .build-board,html.budget-tablet .question-builder,html.budget-tablet .grid2,html.budget-tablet .choice-grid,html.budget-tablet .two-choice,html.budget-tablet .indicator-foundation-grid{grid-template-columns:1fr!important}
+  html.budget-tablet .doc-tabs{grid-template-columns:1fr!important}
+  html.budget-tablet .actors{grid-template-columns:1fr!important}
+  html.budget-tablet .timeline{grid-template-columns:1fr!important}
+  html.budget-tablet .cycle-learning-grid{grid-template-columns:1fr!important}
+  html.budget-tablet .exchange-dashboard .exchange-gauges{grid-template-columns:1fr!important}
+}
 </style>
+<script id="budget-device-detection">
+(function(){
+  function classify(){
+    var ua=navigator.userAgent||'';
+    var uaDataMobile=(navigator.userAgentData&&typeof navigator.userAgentData.mobile==='boolean')?navigator.userAgentData.mobile:null;
+    var phoneByUA=uaDataMobile===true||/iPhone|iPod|Windows Phone|\bMobi\b/i.test(ua);
+    var android=/Android/i.test(ua);
+    var ipad=/iPad/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+    var tabletWord=/Tablet|Silk/i.test(ua);
+    var touch=(navigator.maxTouchPoints||0)>0;
+    var shortSide=Math.min(screen.width||9999,screen.height||9999);
+    var tabletByGeometry=touch&&!phoneByUA&&shortSide>=500;
+    var tablet=(ipad||tabletWord||(android&&!phoneByUA)||tabletByGeometry);
+    var root=document.documentElement;
+    root.classList.remove('budget-phone','budget-tablet','budget-desktop');
+    root.classList.add(phoneByUA?'budget-phone':(tablet?'budget-tablet':'budget-desktop'));
+  }
+  classify();
+  window.addEventListener('orientationchange',classify,{passive:true});
+  window.addEventListener('resize',function(){clearTimeout(window.__budgetDeviceTimer);window.__budgetDeviceTimer=setTimeout(classify,120);},{passive:true});
+})();
+</script>
 </head>
 <body>
 <div id="budget-device-blocker" role="status" aria-live="polite">

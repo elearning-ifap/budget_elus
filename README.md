@@ -1,3 +1,13 @@
+# Budget élus — V8 lot 3.11
+
+Correctif tablette Android / Xiaomi : la distinction smartphone-tablette ne repose plus sur la seule largeur CSS du navigateur.
+
+- smartphone : écran de relais conservé ;
+- tablette Android/iPad : module autorisé même si Chrome ou Moodle expose moins de 768 px CSS ;
+- mise en page tablette forcée par classe appareil ;
+- portrait et paysage conservés ;
+- logique pédagogique et données inchangées par rapport à la V8 lot 3.10.
+
 # Budget des élus — V8 lot 3.10 — principes budgétaires illustrés
 
 Version GitHub Pages consolidant les passes tablette, relecture Émilie et fondamentaux renforcés. La V8 lot 3.10 améliore la mémorisation des six principes sans modifier leur contenu de fond.

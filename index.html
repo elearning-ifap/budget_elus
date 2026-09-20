@@ -1438,7 +1438,7 @@ select:focus,input[type=text]:focus,textarea:focus{
 
 <style id="budget-v38-tablet">
 /* ============================================================================
-   BUDGET ÉLUS — V8 lot 3.11 · TABLETTE XIAOMI / DÉTECTION APPAREIL
+   BUDGET ÉLUS — V8 lot 3.12 · RESSOURCES OFFICIELLES
    Cible : ordinateur + tablette. Smartphone volontairement non pris en charge.
    Cette couche finale neutralise les anciens breakpoints concurrents sans toucher
    à la logique pédagogique ni aux données du module.
@@ -2354,7 +2354,7 @@ html.budget-phone #budget-device-blocker{display:flex;position:fixed;inset:0;z-i
 </div>
 </div>
 </div></div>
-<div class="card soft" id="indicator-qualification" style="margin-top:18px"><div class="counter">À vous de jouer · Qualifier les quatre indicateurs</div><h3>Quel diagnostic provisoire retenez-vous ?</h3><p>Pour chaque indicateur du cas, choisissez le <strong>repère de lecture</strong> correspondant au corpus expert. Le feedback distingue ensuite le niveau observé de la trajectoire, afin d’éviter qu’un code couleur devienne un verdict automatique.</p><div class="resource-list" id="indicator-qual-list">
+<div class="card soft" id="indicator-qualification" style="margin-top:18px"><div class="counter">À vous de jouer · Qualifier les quatre indicateurs</div><h3>Quel diagnostic provisoire retenez-vous ?</h3><p>Pour chaque indicateur du cas, choisissez le <strong>repère de lecture</strong> correspondant au cas étudié. Le feedback distingue ensuite le niveau observé de la trajectoire, afin d’éviter qu’un code couleur devienne un verdict automatique.</p><div class="resource-list" id="indicator-qual-list">
 <div class="resource indicator-row" data-indicator="0"><b>Épargne brute · 13 Md, en baisse</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Situation saine</button><button class="btn secondary indicator-pick" data-value="watch">Point de vigilance</button><button class="btn secondary indicator-pick" data-value="risk">Risque financier</button></div><div class="feedback indicator-feedback"></div></div>
 <div class="resource indicator-row" data-indicator="1"><b>Besoin à financer hors épargne · 9 Md</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Situation saine</button><button class="btn secondary indicator-pick" data-value="watch">Point de vigilance</button><button class="btn secondary indicator-pick" data-value="risk">Risque financier</button></div><div class="feedback indicator-feedback"></div></div>
 <div class="resource indicator-row" data-indicator="2"><b>Désendettement · 3,4 → 5,5 → 7,3 ans</b><div class="cta-row"><button class="btn secondary indicator-pick" data-value="good">Situation saine</button><button class="btn secondary indicator-pick" data-value="watch">Point de vigilance</button><button class="btn secondary indicator-pick" data-value="risk">Risque financier</button></div><div class="feedback indicator-feedback"></div></div>
@@ -2700,7 +2700,7 @@ html.budget-phone #budget-device-blocker{display:flex;position:fixed;inset:0;z-i
 <div class="screen-head">
 <div class="kicker">Accès permanent</div>
 <h1 class="title">Mes repères et ressources</h1>
-<p class="lede">Sur une même page : votre progression dans les cinq missions, votre carnet, les aides de travail et les références utiles.</p>
+<p class="lede">Sur une même page : votre progression dans les cinq missions, votre carnet, les aides de travail et des ressources officielles utiles pour prolonger la formation.</p>
 </div>
 <div class="screen-body">
 <div class="resources-progress"><h2>Ma progression</h2><p class="muted">Les badges et repères ci-dessous se mettent à jour au fil du parcours.</p><div class="repere-map" id="repere-map">
@@ -2723,13 +2723,13 @@ html.budget-phone #budget-device-blocker{display:flex;position:fixed;inset:0;z-i
 </div>
 </div>
 <div>
-<h3>Références de travail</h3>
+<h3>Ressources officielles utiles</h3>
 <div class="resource-list">
-<div class="resource"><b>Loi organique n° 99-209 du 19 mars 1999</b><p>Cadre institutionnel et budgétaire de la Nouvelle-Calédonie ; utiliser la version en vigueur.</p><p><a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000393606" target="_blank" rel="noopener">Consulter sur Légifrance</a></p></div>
-<div class="resource"><b>Congrès de la Nouvelle-Calédonie</b><p>Documents et délibérations budgétaires publiés par l’institution.</p><p><a href="https://www.congres.nc" target="_blank" rel="noopener">Consulter le site du Congrès</a></p></div>
-<div class="resource"><b>Direction du Budget et des Affaires Financières</b><p>Rapports et documents budgétaires de la Nouvelle-Calédonie.</p></div>
+<div class="resource"><b>Rapports budgétaires de la Nouvelle-Calédonie</b><p>Consultez les budgets primitifs, budgets supplémentaires, décisions modificatives et comptes administratifs publiés par la Direction du Budget et des Affaires Financières.</p><p><a class="btn secondary" href="https://dbaf.gouv.nc/rapports-budgetaires/rapports-budgetaires" target="_blank" rel="noopener">Consulter les rapports budgétaires</a></p></div>
+<div class="resource"><b>Loi organique relative à la Nouvelle-Calédonie · article 84</b><p>Retrouvez le cadre juridique en vigueur relatif au vote du budget, à ses deux sections et à l’équilibre réel.</p><p><a class="btn secondary" href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000028213992" target="_blank" rel="noopener">Consulter l’article 84 sur Légifrance</a></p></div>
+<div class="resource"><b>Chambre territoriale des comptes de Nouvelle-Calédonie</b><p>Accédez aux publications de la chambre pour voir comment les finances et la gestion des organismes publics calédoniens sont analysées dans des situations réelles.</p><p><a class="btn secondary" href="https://www.ccomptes.fr/fr/ctc-nouvelle-caledonie" target="_blank" rel="noopener">Consulter les publications de la CTC</a></p></div>
 </div>
-<div class="card gold" style="margin-top:14px"><h4>Références et ressources recommandées dans le corpus expert</h4><ul class="resource-biblio"><li>Rapports budgétaires de la Nouvelle-Calédonie : budget primitif et compte administratif.</li><li>Comptes administratifs déposés au Congrès, notamment l’exercice 2025.</li><li>Guide institutionnel du Gouvernement de la Nouvelle-Calédonie.</li><li>Rapports de la Chambre territoriale des comptes relatifs à la Nouvelle-Calédonie.</li><li>Fiche Bee Assist 2026 « Les 5 indicateurs essentiels pour comprendre un budget public ».</li><li>Outil Bee Assist 2026 de lecture rapide d’un budget public.</li><li>Glossaire Bee Assist 2026 des termes budgétaires spécifiques à la Nouvelle-Calédonie.</li><li>Module IFAP « Comprendre, construire et piloter un budget public ».</li></ul></div>
+<div class="card soft" style="margin-top:14px"><h4>À quoi servent ces liens ?</h4><p>À retrouver, après la formation, des <strong>documents officiels à jour</strong> pour préparer ou approfondir la lecture d’un dossier budgétaire réel. Les sources utilisées pour concevoir le module sont, elles, distinguées dans la page « Crédits ».</p></div>
 </div>
 </div>
 <div class="cta-row"><button class="btn primary" data-complete-go="bud-credits">Voir les crédits</button></div>
@@ -2813,7 +2813,7 @@ html.budget-phone #budget-device-blocker{display:flex;position:fixed;inset:0;z-i
 <button class="g-acces-carte" data-go="bud-m5-question" type="button"><b>Préparer mes questions</b><small>Construire deux questions utiles pour un échange de travail</small></button>
 </div></section>
 <section><h3>Mes outils</h3><div class="g-acces-grid">
-<button class="g-acces-carte" data-go="bud-ressources" type="button"><b>Mes repères et ressources</b><small>Badges, outils, références et accès au carnet</small></button>
+<button class="g-acces-carte" data-go="bud-ressources" type="button"><b>Mes repères et ressources</b><small>Badges, outils, ressources officielles et accès au carnet</small></button>
 <button class="g-acces-carte" data-bud-tool="bud-carnet" type="button"><b>Mon carnet</b><small>Signaux, constats, vigilances, priorités et questions</small></button>
 <button class="g-acces-carte" data-bud-tool="bud-lexique" type="button"><b>Lexique</b><small>Définitions et formules utiles</small></button>
 

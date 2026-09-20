@@ -1,4 +1,16 @@
-# Budget élus — V8 lot 3.11
+# Budget élus — V8 lot 3.12
+
+## Évolution de cette version
+
+La page « Mes repères et ressources » a été recentrée sur l’usage apprenant :
+
+- suppression du bloc « Références et ressources recommandées dans le corpus expert » ;
+- suppression des ressources Bee Assist de l’espace apprenant (l’expertise reste créditée dans la page dédiée) ;
+- remplacement par trois accès officiels : rapports budgétaires DBAF, article 84 de la loi organique sur Légifrance, publications de la CTC Nouvelle-Calédonie ;
+- explicitation de l’utilité des liens pour préparer ou approfondir un dossier budgétaire réel ;
+- suppression d’une mention « corpus expert » encore visible dans l’activité sur les indicateurs.
+
+Cette version conserve l’intégralité des corrections tablette de la V8 lot 3.11.
 
 Correctif tablette Android / Xiaomi : la distinction smartphone-tablette ne repose plus sur la seule largeur CSS du navigateur.
 
